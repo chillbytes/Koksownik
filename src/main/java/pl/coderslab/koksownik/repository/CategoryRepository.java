@@ -1,4 +1,4 @@
-package pl.coderslab.koksownik.repositiry;
+package pl.coderslab.koksownik.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.coderslab.koksownik.model.Category;

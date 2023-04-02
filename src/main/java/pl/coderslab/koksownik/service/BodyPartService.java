@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.coderslab.koksownik.dao.BodyPartDao;
 import pl.coderslab.koksownik.model.BodyPart;
-import pl.coderslab.koksownik.repositiry.BodyPartRepository;
+import pl.coderslab.koksownik.repository.BodyPartRepository;
 @Service
 @RequiredArgsConstructor
 public class BodyPartService {
