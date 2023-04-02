@@ -4,14 +4,11 @@ package pl.coderslab.koksownik.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.koksownik.model.BodyPart;
 import pl.coderslab.koksownik.service.BodyPartService;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/bodyPart")
@@ -26,13 +23,20 @@ public class BodyPartController {
         return "/addBodyPart";
     }
 
+//    @PostMapping("/add")
+//    public String addSave(@Valid BodyPart bodyPart, BindingResult result, Model model) {
+//        if (result.hasErrors()) {
+//            return "/addBodyPart";
+//        }
+//        bodyPartService.save(bodyPart);
+//        //model.addAttribute("books", bodyPartService.allWithAuthors());
+//        return "bodyPartList";
+//    }
+
     @PostMapping("/add")
-    public String addSave(@Valid BodyPart bodyPart, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "/addBodyPart";
-        }
+    public String addSave(BodyPart bodyPart) {
         bodyPartService.save(bodyPart);
-        //model.addAttribute("books", bodyPartService.allWithAuthors());
-        return "/BodyPartlist";
+        return "bodyPartList";
     }
+
 }
