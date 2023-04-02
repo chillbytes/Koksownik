@@ -10,7 +10,7 @@
 <h1><spring:message code = "app.title" /> </h1><BR>
 <H3>Add Category</H3>
 <form:form method="post" modelAttribute="category">
-  Name:<form:input path="name"/>
+  Name:<form:input path="name"/><br>
   Multiplier:<form:input path="multiplier" type="number"/>
   <input type="submit" value="Add"/>
 </form:form>

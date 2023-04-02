@@ -19,14 +19,15 @@ public class ExerciseController {
 
     @GetMapping("/add")
     public String add(Model model) {
-        model.addAttribute("excercise", new Exercise());
-        return "/addExcercise";
+        model.addAttribute("exercise", new Exercise());
+        return "/addExercise";
     }
 
     @PostMapping("/add")
     public String addSave(Exercise exercise) {
-        //exerciseService.save(exercise);               ///odkomentować po naprawieniu formularza//
-        return "excerciseList";
+        System.out.println("post mapping: /exercise/add");
+        exerciseService.save(exercise);               ///odkomentować po naprawieniu formularza//
+        return "exerciseList";
     }
 
 
