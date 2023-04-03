@@ -18,4 +18,9 @@ public class ExerciseDao {
     public List<Exercise> all() {
         return entityManager.createQuery("select e from Exercise e order by e.name").getResultList();
     }
+
+    public Exercise findById(long id) {
+        return entityManager.find(Exercise.class, id);
+    }
+
 }

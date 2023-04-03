@@ -18,4 +18,8 @@ public class ExerciseService {
         exerciseDao.save(exercise);
     }
     public List<Exercise> all() {return exerciseDao.all();}
+
+    public Exercise findById(long id) {
+        return exerciseDao.findById(id);
+    }
 }
