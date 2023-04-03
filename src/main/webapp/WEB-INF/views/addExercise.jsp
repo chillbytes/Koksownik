@@ -16,13 +16,28 @@
 <%--    </form:form>--%>
 
     <form:form method="post" modelAttribute="exercise">
-      Name:<form:input path="name"/><br>
-      Description:<form:input path="description"/><br>
-      <input type="submit" value="Add"/>
+
+      Name:         <form:input path="name"/><br>
+
+      Description:  <form:input path="description"/><br>
+
+      Category:     <form:select path="category"><br>
+                    <form:option value="0" label="-- wybierz --"/>
+                    <form:options items="${categoryList}" itemLabel="name" itemValue="id"/>
+                    </form:select><br>
+
+      Body part:    <form:select path="bodyPart"><br>
+                    <form:option value="0" label="-- wybierz --"/>
+                    <form:options items="${bodyPartList}" itemLabel="name" itemValue="id"/>
+                    </form:select><br>
+
+                    <input type="submit" value="Add"/>
+
     </form:form>
 
 
-
+<%--//bodyPartList--%>
+<%--//categoryList    --%>
 
 
 

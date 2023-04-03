@@ -6,6 +6,8 @@ import pl.coderslab.koksownik.dao.CategoryDao;
 import pl.coderslab.koksownik.model.Category;
 import pl.coderslab.koksownik.repository.CategoryRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
@@ -14,5 +16,8 @@ public class CategoryService {
 
     public void save(Category category) {
         categoryDao.save(category);
+    }
+    public List<Category> all() {
+        return categoryDao.all();
     }
 }
