@@ -7,10 +7,15 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.koksownik.model.Exercise;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class ExerciseDao {
     @PersistenceContext
     EntityManager entityManager;
     public void save(Exercise exercise) {entityManager.persist(exercise);}
+    public List<Exercise> all() {
+        return entityManager.createQuery("select e from Exercise e order by e.name").getResultList();
+    }
 }

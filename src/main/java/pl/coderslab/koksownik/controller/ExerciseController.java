@@ -48,8 +48,7 @@ public class ExerciseController {
 
     @PostMapping("/add")
     public String addSave(Exercise exercise) {
-        System.out.println("post mapping: /exercise/add");
-        exerciseService.save(exercise);               ///odkomentować po naprawieniu formularza//
+        exerciseService.save(exercise);
         return "exerciseList";
     }
 

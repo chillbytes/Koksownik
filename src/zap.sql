@@ -3,7 +3,7 @@ use koksownik;
 
 select * from exercises
 
-delete from exercises where 1 = 1
+# delete from exercises where 1 = 1
 
 select * from bodyparts
 

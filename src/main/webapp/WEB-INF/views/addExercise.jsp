@@ -10,10 +10,6 @@
 
 
     <H3>Add Excercise</H3>
-<%--    <form:form method="post" modelAttribute="exercise">--%>
-<%--      Name:<form:input path="name"/><br>--%>
-<%--      <input type="submit" value="Add"/>--%>
-<%--    </form:form>--%>
 
     <form:form method="post" modelAttribute="exercise">
 
@@ -34,13 +30,6 @@
                     <input type="submit" value="Add"/>
 
     </form:form>
-
-
-<%--//bodyPartList--%>
-<%--//categoryList    --%>
-
-
-
 
     <h3><spring:message code = "app.footer" /> </h3><BR>
   </body>

@@ -6,6 +6,8 @@ import pl.coderslab.koksownik.dao.ExerciseDao;
 import pl.coderslab.koksownik.model.Exercise;
 import pl.coderslab.koksownik.repository.ExerciseRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ExerciseService {
@@ -15,4 +17,5 @@ public class ExerciseService {
     public void save(Exercise exercise) {
         exerciseDao.save(exercise);
     }
+    public List<Exercise> all() {return exerciseDao.all();}
 }
