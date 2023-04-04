@@ -35,7 +35,7 @@ public class WorkoutTemplateController {
     @PostMapping("/add")
     public String addSave(WorkoutTemplate workoutTemplate) {
         workoutTemplateService.save(workoutTemplate);
-        return "WorkoutTemplateList";
+        return "WorkoutTemplateEdition";
     }
 
 
