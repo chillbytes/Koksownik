@@ -23,4 +23,7 @@ public class WorkoutTemplateDao {
     public WorkoutTemplate findById(Long id) {
         return entityManager.find(WorkoutTemplate.class, id);
     }
+
+
+
 }

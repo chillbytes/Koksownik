@@ -23,20 +23,34 @@ public class BodyPartController {
         return "/addBodyPart";
     }
 
-//    @PostMapping("/add")
-//    public String addSave(@Valid BodyPart bodyPart, BindingResult result, Model model) {
-//        if (result.hasErrors()) {
-//            return "/addBodyPart";
-//        }
-//        bodyPartService.save(bodyPart);
-//        //model.addAttribute("books", bodyPartService.allWithAuthors());
-//        return "bodyPartList";
-//    }
+    //    @PostMapping("/add")
+    //    public String addSave(@Valid BodyPart bodyPart, BindingResult result, Model model) {
+    //        if (result.hasErrors()) {
+    //            return "/addBodyPart";
+    //        }
+    //        bodyPartService.save(bodyPart);
+    //        //model.addAttribute("books", bodyPartService.allWithAuthors());
+    //        return "bodyPartList";
+    //    }
 
     @PostMapping("/add")
-    public String addSave(BodyPart bodyPart) {
+    public String addSave(BodyPart bodyPart, Model model) {
         bodyPartService.save(bodyPart);
-        return "bodyPartList";
+
+        //model.addAttribute("bodyParts", bodyPartService.all());
+        model.addAttribute("bodyParts", bodyPartService.allBodyParts());
+
+        return "/bodyPartList";
+    }
+
+
+    @RequestMapping("/list")
+    public String getBodyPartList(Model model) {
+
+        //model.addAttribute("bodyParts", bodyPartService.all());
+        model.addAttribute("bodyParts", bodyPartService.allBodyParts());
+
+        return "/bodyPartList";
     }
 
 }

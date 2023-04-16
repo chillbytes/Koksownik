@@ -16,10 +16,25 @@ public class ExerciseService {
 
     public void save(Exercise exercise) {
         exerciseDao.save(exercise);
+
     }
-    public List<Exercise> all() {return exerciseDao.all();}
+    public List<Exercise> all() {
+
+        return exerciseDao.all();
+
+    }
 
     public Exercise findById(long id) {
+
+
         return exerciseDao.findById(id);
+
+    }
+
+
+    public List<Exercise> findByWorkoutTemplateId(Long id) {
+
+        return exerciseRepository.findExcercisesOfWorkoutTemplate(id);
+
     }
 }

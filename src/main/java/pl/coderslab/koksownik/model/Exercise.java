@@ -29,5 +29,8 @@ public class Exercise {
     @ManyToOne
     private Category category;
 
+//powtórzenia
+//tryb
+//masa
 
 }

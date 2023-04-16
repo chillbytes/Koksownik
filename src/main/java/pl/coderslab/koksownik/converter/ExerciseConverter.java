@@ -12,6 +12,8 @@ public class ExerciseConverter implements Converter<String, Exercise> {
 
     @Override
     public Exercise convert(String s) {
+
         return exerciseService.findById(Long.parseLong(s));
+
     }
 }

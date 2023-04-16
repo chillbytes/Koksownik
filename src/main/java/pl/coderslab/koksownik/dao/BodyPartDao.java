@@ -18,6 +18,10 @@ public class BodyPartDao {
         entityManager.persist(bodyPart);
     }
     public List<BodyPart> all() {
+
+
         return entityManager.createQuery("select b from BodyPart b").getResultList();
+
+
     }
 }

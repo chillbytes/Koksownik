@@ -9,12 +9,17 @@ import pl.coderslab.koksownik.converter.ExerciseConverter;
 public class KoksownikApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(KoksownikApplication.class, args);
+
+        SpringApplication.run(KoksownikApplication.class, args
+
+        );
     }
 
     @Bean
     public ExerciseConverter getExerciseConverter() {
+
         return new ExerciseConverter();
+
     }
 
 }

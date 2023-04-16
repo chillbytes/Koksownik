@@ -8,10 +8,10 @@
 
     <body>
         <h1><spring:message code = "app.title" /> </h1><BR>
-        <p><spring:message code="app.hello" arguments ="Wojtek"/></p><BR>
-        <P>Hello Springbook - widok!</P>
-        <P>Hello Springbook - widok!</P>
-        <P>Hello Springbook - widok!</P>
+<%--        <p><spring:message code="app.hello" arguments ="Wojtek"/></p><BR>--%>
+<%--        <P>Hello Springbook - widok!</P>--%>
+<%--        <P>Hello Springbook - widok!</P>--%>
+<%--        <P>Hello Springbook - widok!</P>--%>
 
 <%--
         add body part:      /bodyPart/add
