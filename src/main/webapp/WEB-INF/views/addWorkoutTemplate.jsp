@@ -17,7 +17,7 @@
 
             Description:  <form:input path="description"/><br>
 
-            Excercises:   <form:select path="exercises" multiple="true" items="${exerciseList}" itemValue="id" itemLabel="name"/><br>
+<%--            Excercises:   <form:select path="exercises" multiple="true" items="${exerciseList}" itemValue="id" itemLabel="name"/><br>--%>
 
             <input type="submit" value="Add"/>
 

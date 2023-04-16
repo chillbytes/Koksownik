@@ -18,4 +18,8 @@ public class WorkoutTemplateService {
         workoutTemplateDao.save(workoutTemplate);
     }
     public List<WorkoutTemplate> all() {return workoutTemplateDao.all();}
+
+    public WorkoutTemplate findById(Long id ) {
+         return workoutTemplateDao.findById(id);
+    }
 }

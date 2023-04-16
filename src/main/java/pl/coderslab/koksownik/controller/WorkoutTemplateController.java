@@ -3,10 +3,7 @@ package pl.coderslab.koksownik.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.koksownik.model.Exercise;
 import pl.coderslab.koksownik.model.WorkoutTemplate;
 import pl.coderslab.koksownik.service.ExerciseService;
@@ -25,6 +22,19 @@ public class WorkoutTemplateController {
     public List<Exercise> getExercises() {
         return exerciseService.all();
     }
+
+    @GetMapping("/edit/{id}")
+    public String edit (Model model, @PathVariable Long id) {
+        model.addAttribute("workoutTemplate", workoutTemplateService.findById(id));
+        return "/WorkoutTemplateEdition";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String editSave (WorkoutTemplate workoutTemplate) {
+        workoutTemplateService.save(workoutTemplate);
+        return "WorkoutTemplateList";
+    }
+
 
     @GetMapping("/add")
     public String add(Model model) {

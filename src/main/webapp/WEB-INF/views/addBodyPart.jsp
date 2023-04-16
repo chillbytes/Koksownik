@@ -9,7 +9,7 @@
 
         <h1><spring:message code = "app.title" /> </h1><BR>
         <H3>Add BodyPart</H3>
- 
+
             <form:form method="post" modelAttribute="bodyPart">
                 Name:<form:input path="name"/>
                 <input type="submit" value="Add"/>

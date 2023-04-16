@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity
@@ -22,7 +21,7 @@ public class WorkoutTemplate {
 
     private String description;
 
-    @NotEmpty
+//    @NotEmpty
     @ManyToMany
     @JoinTable(name = "workouts_excercises",
                 joinColumns = @JoinColumn(name = "workout_id"),

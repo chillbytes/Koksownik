@@ -19,4 +19,8 @@ public class WorkoutTemplateDao {
     public List<WorkoutTemplate> all() {
         return entityManager.createQuery("select w from WorkoutTemplate w order by w.name").getResultList();
     }
+
+    public WorkoutTemplate findById(Long id) {
+        return entityManager.find(WorkoutTemplate.class, id);
+    }
 }
