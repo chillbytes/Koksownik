@@ -20,6 +20,13 @@
         add waorkoutTemp:   /workoutTemplate/add
 
 --%>
+<%--        <a href = "/bodyPart/list">Body parts</a>--%>
+<%--        <a href = "/category/list">Categories</a>--%>
+<%--        <a href = "/exercise/list">Exercises</a>--%>
+<%--        <a href = "/workoutTemplate/list">Workout templates</a>--%>
+
+<%--        <br><br>--%>
+
 
 
         <a href = "/bodyPart/add">Add body part</a><br>

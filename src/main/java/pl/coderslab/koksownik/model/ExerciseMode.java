@@ -1,28 +1,29 @@
 package pl.coderslab.koksownik.model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-
 @Entity
-@Table(name = "bodyparts")
+@Table(name = "exerciseModes")
 @Data
-public class BodyPart {
+public class ExerciseMode {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    private String name;
+    private String name;    //warm-up
+                            //working set
+                            //drop set
+                            //failurea
+
+    private String description;
 
 
-    //legs
-    //chest
-    //back
-    //shoulders
-    //arms
+
+
 
 }

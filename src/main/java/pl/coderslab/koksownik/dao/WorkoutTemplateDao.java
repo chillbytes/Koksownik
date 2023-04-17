@@ -1,11 +1,12 @@
 package pl.coderslab.koksownik.dao;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
+
 import org.springframework.stereotype.Repository;
 import pl.coderslab.koksownik.model.WorkoutTemplate;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -13,8 +14,10 @@ import java.util.List;
 public class WorkoutTemplateDao {
     @PersistenceContext
     EntityManager entityManager;
-    public void save(WorkoutTemplate workoutTemplate) {
+    public Long save(WorkoutTemplate workoutTemplate) {
+
         entityManager.persist(workoutTemplate);
+        return workoutTemplate.getId();
     }
     public List<WorkoutTemplate> all() {
         return entityManager.createQuery("select w from WorkoutTemplate w order by w.name").getResultList();

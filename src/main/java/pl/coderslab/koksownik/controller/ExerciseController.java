@@ -52,7 +52,13 @@ public class ExerciseController {
         return "exerciseList";
     }
 
+    @GetMapping("/list")
+    public String getExerciseList(Model model) {
 
+        model.addAttribute("exercises", exerciseService.getAllExercises());
+
+        return "/exerciseList";
+    }
 
 
 

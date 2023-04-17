@@ -1,9 +1,10 @@
 package pl.coderslab.koksownik.model;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 

@@ -63,12 +63,22 @@ public class WorkoutTemplateController {
     }
 
     @PostMapping("/add")
-    public String addSave(WorkoutTemplate workoutTemplate) {
-        workoutTemplateService.save(workoutTemplate);
+    public String addSave(WorkoutTemplate workoutTemplate, Model model) {
+        Long id = workoutTemplateService.save(workoutTemplate);
+
+        model.addAttribute("workoutExercises", exerciseService.findByWorkoutTemplateId(id));
+
         return "/workoutTemplateEdition";
     }
 
 
+    @GetMapping("/list")
+    public String getWorkoutTemplateList(Model model) {
+
+        model.addAttribute("workoutTemplates", workoutTemplateService.all());
+
+        return "/workoutTemplateList";
+    }
 
 
 }

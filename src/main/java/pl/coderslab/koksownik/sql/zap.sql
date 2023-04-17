@@ -12,7 +12,7 @@ select * from exercises
 select * from bodyparts
 delete from bodyparts where id > 5
 
-select * from categories
+select * from categories order by id
 
 select * from workouts
 
@@ -40,3 +40,23 @@ SELECT e.* FROM workouts w INNER JOIN workouts_excercises we ON w.id = we.workou
 
 
 select * from bodyparts b order by id
+
+
+
+select * from exercise_modes;
+
+select * from exercises
+
+
+insert into  exercise_modes (description, name) VALUES ('warm-up', 'Warming up!');
+
+insert into  exercise_modes (description, name) VALUES ('working set', 'Working set');
+
+insert into  exercise_modes (description, name) VALUES ('drop set', 'Drop set');
+
+insert into  exercise_modes (description, name) VALUES ('Failure', 'Working to failure');
+
+
+
+
+select distinct e.id, e.name, b.name, c.name from exercises e inner join bodyparts b on e.body_part_id = b.id inner join categories c on e.category_id = c.id where  1 = 1 order by e.id

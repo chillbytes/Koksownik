@@ -1,12 +1,12 @@
 package pl.coderslab.koksownik.dao;
 
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.koksownik.model.Exercise;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -19,9 +19,12 @@ public class ExerciseDao {
         return entityManager.createQuery("select e from Exercise e order by e.name").getResultList();
     }
 
-    public Exercise findById(long id) {
-        return entityManager.find(Exercise.class, id);
-    }
+//    public Exercise findById(long id) {
+//
+//        return entityManager.find(Exercise.class, id)
+//                ;
+//    }
+
 
 
 

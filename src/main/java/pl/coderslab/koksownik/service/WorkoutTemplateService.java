@@ -14,12 +14,21 @@ public class WorkoutTemplateService {
     private final WorkoutTemplateDao workoutTemplateDao;
     private final WorkoutTemplateRepository workoutTemplateRepository;
 
-    public void save(WorkoutTemplate workoutTemplate) {
-        workoutTemplateDao.save(workoutTemplate);
+    public Long save(WorkoutTemplate workoutTemplate) {
+
+        return workoutTemplateDao.save(workoutTemplate);
+
     }
-    public List<WorkoutTemplate> all() {return workoutTemplateDao.all();}
+    public List<WorkoutTemplate> all() {
+
+        return workoutTemplateDao.all();
+
+    }
 
     public WorkoutTemplate findById(Long id ) {
-         return workoutTemplateDao.findById(id);
+
+
+        return workoutTemplateDao.findById(id);
+
     }
 }

@@ -1,5 +1,5 @@
 
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -26,10 +26,8 @@
                     <td>${bodyPart.id}</td>
                     <td>${bodyPart.name}</td>
                     <td>ctrl</td>
-
                 </tr>
             </c:forEach>
-
         </table>
         <h3><spring:message code = "app.footer" /> </h3><BR>
     </body>

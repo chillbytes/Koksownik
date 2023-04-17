@@ -1,11 +1,12 @@
 package pl.coderslab.koksownik.dao;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
+
 import org.springframework.stereotype.Repository;
 import pl.coderslab.koksownik.model.Category;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 

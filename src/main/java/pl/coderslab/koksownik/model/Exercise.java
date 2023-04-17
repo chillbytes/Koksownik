@@ -1,9 +1,9 @@
 package pl.coderslab.koksownik.model;
 
 
-import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -29,8 +29,13 @@ public class Exercise {
     @ManyToOne
     private Category category;
 
-//powtórzenia
-//tryb
-//masa
+    private Integer repetitions;
+
+    private Float weight;
+
+    @ManyToOne
+    private ExerciseMode exerciseMode;
+
+    private Integer orderId;
 
 }

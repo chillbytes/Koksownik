@@ -44,10 +44,9 @@ public class BodyPartController {
     }
 
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public String getBodyPartList(Model model) {
 
-        //model.addAttribute("bodyParts", bodyPartService.all());
         model.addAttribute("bodyParts", bodyPartService.allBodyParts());
 
         return "/bodyPartList";

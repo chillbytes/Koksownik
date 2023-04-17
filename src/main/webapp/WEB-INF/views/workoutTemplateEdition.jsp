@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
@@ -34,29 +35,33 @@
 
         --%>
 
-<%--        <table border="1">--%>
-<%--            <tr>--%>
-<%--                <td>Id</td>--%>
-<%--                <td>Tryb</td>--%>
-<%--                <td>Nazwa</td>--%>
-<%--                <td>Opis</td>--%>
-<%--                <td>Powt</td>--%>
-<%--                <td>Masa</td>--%>
-<%--                <td></td>--%>
-<%--            </tr>--%>
-<%--            <c:forEach items="${exerciseList}" var="exerciseList">--%>
-<%--                <tr>--%>
-<%--                    <td>${exerciseList.id}</td>             &lt;%&ndash;id&ndash;%&gt;--%>
-<%--                    <td></td>                               &lt;%&ndash;tryb&ndash;%&gt;--%>
-<%--                    <td>${exerciseList.name}</td>           &lt;%&ndash;name&ndash;%&gt;--%>
-<%--                    <td>${exerciseList.description}</td>    &lt;%&ndash;desc&ndash;%&gt;--%>
-<%--                    <td></td>                               &lt;%&ndash;repetitions&ndash;%&gt;--%>
-<%--                    <td></td>                               &lt;%&ndash;weight&ndash;%&gt;--%>
-<%--                    <td> </td>--%>
-<%--                        &lt;%&ndash;                    <td><a href="/book/form/edit/${book.id}">Edytuj</a> <a href="/book/form/confirm/${book.id}">Usuń</a></td>&ndash;%&gt;--%>
-<%--                </tr>--%>
-<%--            </c:forEach>--%>
-<%--        </table>--%>
+        <c:if test="${exerciseList.size() gt 0}">
+            <table border="1">
+                <tr>
+                    <td>Id</td>
+                    <td>Tryb</td>
+                    <td>Nazwa</td>
+                    <td>Opis</td>
+                    <td>Powt</td>
+                    <td>Masa</td>
+                    <td></td>
+                </tr>
+                <c:forEach items="${exerciseList}" var="workoutExercises">
+                    <tr>
+                        <td>${exerciseList.id}</td>             <%--id--%>
+                        <td></td>                               <%--tryb--%>
+                        <td>${exerciseList.name}</td>           <%--name--%>
+                        <td>${exerciseList.description}</td>    <%--desc--%>
+                        <td></td>                               <%--repetitions--%>
+                        <td></td>                               <%--weight--%>
+                        <td> </td>
+                            <%--                    <td><a href="/book/form/edit/${book.id}">Edytuj</a> <a href="/book/form/confirm/${book.id}">Usuń</a></td>--%>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
+
+
 
 
 

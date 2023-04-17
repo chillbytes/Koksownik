@@ -24,17 +24,21 @@ public class ExerciseService {
 
     }
 
-    public Exercise findById(long id) {
-
-
-        return exerciseDao.findById(id);
-
-    }
+//    public Exercise findById(long id) {
+//
+//
+//        return exerciseDao.findById(id);
+//
+//    }
 
 
     public List<Exercise> findByWorkoutTemplateId(Long id) {
 
         return exerciseRepository.findExcercisesOfWorkoutTemplate(id);
 
+    }
+
+    public List<Exercise> getAllExercises () {
+        return exerciseDao.all();
     }
 }
