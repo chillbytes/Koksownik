@@ -24,8 +24,9 @@ public class CategoryController {
     }
 
     @PostMapping("/add")
-    public String addSave(Category category) {
+    public String addSave(Category category, Model model) {
         categoryService.save(category);
+        model.addAttribute("categories", categoryService.getAllCategories());
         return "categoryList";
     }
 

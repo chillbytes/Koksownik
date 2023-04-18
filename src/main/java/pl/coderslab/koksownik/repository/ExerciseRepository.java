@@ -26,4 +26,5 @@ public interface ExerciseRepository extends JpaRepository<Category, Long> {
     @Query(nativeQuery = true, value = "SELECT   * FROM exercises ORDER BY id")
         //@Query(nativeQuery = true, value = "select distinct e.id, e.name as ename, b.name as bname, c.name as cname from exercises e inner join bodyparts b on e.body_part_id = b.id inner join categories c on e.category_id = c.id where  1 = 1 order by e.id")
     List<Exercise> getAllExercises();
+
 }

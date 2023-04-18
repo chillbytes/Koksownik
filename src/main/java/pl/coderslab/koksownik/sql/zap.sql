@@ -1,3 +1,8 @@
+
+CREATE DATABASE koksownik CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+use koksownik;
+
 use koksownik;
 
 
@@ -60,3 +65,23 @@ insert into  exercise_modes (description, name) VALUES ('Failure', 'Working to f
 
 
 select distinct e.id, e.name, b.name, c.name from exercises e inner join bodyparts b on e.body_part_id = b.id inner join categories c on e.category_id = c.id where  1 = 1 order by e.id
+
+select * from workoutpositions
+
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(1, 10, 50, 1, 1);
+
+
+select
+    w2.position_number,
+    w.name,
+    w.description,
+    e.name,
+    e.description,
+    w2.weight,
+    w2.repetitions,
+    em.name
+from workouts w
+left join workoutpositions w2 on w.id = w2.workout_template_id
+left join exercises e on w2.exercise_id = e.id
+left join exercise_modes em on w2.exercise_mode_id = em.id
+where w.id = 1;

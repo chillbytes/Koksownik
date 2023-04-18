@@ -36,7 +36,7 @@ public class WorkoutTemplateController {
     public String edit (Model model, @PathVariable Long id) {
         model.addAttribute("workoutTemplate", workoutTemplateService.findById(id));
 
-        model.addAttribute("workoutExercises", exerciseService.findByWorkoutTemplateId(id));
+        //model.addAttribute("workoutExercises", exerciseService.findByWorkoutTemplateId(id));
 
         return "/workoutTemplateEdition";
     }
@@ -66,9 +66,9 @@ public class WorkoutTemplateController {
     public String addSave(WorkoutTemplate workoutTemplate, Model model) {
         Long id = workoutTemplateService.save(workoutTemplate);
 
-        model.addAttribute("workoutExercises", exerciseService.findByWorkoutTemplateId(id));
+        model.addAttribute("workoutTemplates", workoutTemplateService.all());
 
-        return "/workoutTemplateEdition";
+        return "/workoutTemplateList";
     }
 
 

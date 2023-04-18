@@ -29,13 +29,5 @@ public class Exercise {
     @ManyToOne
     private Category category;
 
-    private Integer repetitions;
-
-    private Float weight;
-
-    @ManyToOne
-    private ExerciseMode exerciseMode;
-
-    private Integer orderId;
 
 }

@@ -47,7 +47,9 @@ public class ExerciseController {
     }
 
     @PostMapping("/add")
-    public String addSave(Exercise exercise) {
+    public String addSave(Exercise exercise, Model model) {
+
+        model.addAttribute("exercises", exerciseService.getAllExercises());
         exerciseService.save(exercise);
         return "exerciseList";
     }

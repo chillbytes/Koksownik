@@ -19,12 +19,14 @@
             <td>Id</td>
             <td>Nazwa szablonu</td>
             <td>Opis</td>
+            <td>Edycja</td>
         </tr>
         <c:forEach var="workoutTemp" items="${workoutTemplates}" >
             <tr>
                 <td>${workoutTemp.id}</td>
                 <td>${workoutTemp.name}</td>
                 <td>${workoutTemp.description}</td>
+                <td><a href = "/workoutTemplate/edit/${workoutTemp.id}">Edytuj</a> </td>
             </tr>
         </c:forEach>
     </table>
