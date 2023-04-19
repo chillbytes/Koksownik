@@ -22,13 +22,14 @@ public class WorkoutPosition {
     @ManyToOne
     private ExerciseMode exerciseMode;   //tryb (rozgrzewka, seria robocza, dropset, ćwiczenie do upadku mięśniowego)
 
-    //private Integer orderId;
-
     @ManyToOne
     private Exercise exercise;
+
+
+
 //
-//    @ManyToOne
-//    private WorkoutTemplate workoutTemplate;
+    @ManyToOne
+    private WorkoutTemplate workoutTemplate;
 
 
 }

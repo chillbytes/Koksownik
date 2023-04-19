@@ -34,6 +34,7 @@ public class WorkoutTemplateController {
 
     @GetMapping("/edit/{id}")
     public String edit (Model model, @PathVariable Long id) {
+        System.out.println("edit workout template: " + id);
         model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById(id));  //DAO
         //model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById2(id));           //Repository(native SQL)
         return "/workoutTemplateEdition";
@@ -52,11 +53,6 @@ public class WorkoutTemplateController {
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("workoutTemplate", new WorkoutTemplate());
-
-        System.out.println("\n\n");
-        System.out.println("Go to '/addWorkoutTemplate' jsp file! ");
-        System.out.println("\n\n");
-
         return "/addWorkoutTemplate";
     }
 

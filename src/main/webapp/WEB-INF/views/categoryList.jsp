@@ -10,7 +10,7 @@
         <h1><spring:message code = "app.title" /> </h1><BR>
         <h2>Tutaj lista Category</h2>
         <p>Wyświetlanie listy category</p>
-
+        <a href="/category/add">Add category</a><BR>
         <table border="1">
             <tr>
                 <td>Id</td>

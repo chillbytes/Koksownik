@@ -13,7 +13,7 @@
         <h1><spring:message code = "app.title" /> </h1><BR>
         <h2>Tutaj lista BodyPart</h2>
         <p>Wyświetlanie listy body parts</p>
-
+        <a href="/bodyPart/add">Add body part</a><BR>
         <table border="1">
             <tr>
                 <td>Id</td>

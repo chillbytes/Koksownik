@@ -29,8 +29,18 @@ public class WorkoutTemplateDao {
     }
 
     public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
+        System.out.println("before DB query, id" + id);
+
         Query query = entityManager.createQuery("SELECT wt.id, wt.name, wt.description, wp.id, wp.positionNumber, wp.repetitions, wp.weight, e.id, e.name, e.description, wt FROM WorkoutTemplate wt JOIN FETCH wt.workoutPositions wp JOIN FETCH wp.exercise e WHERE wt.id=:id");
+        //Query query = entityManager.createQuery("SELECT wt FROM WorkoutTemplate wt JOIN wt.workoutPositions WHERE wt.id=:id");
         query.setParameter("id", id);
+
+
+        List<WorkoutTemplate> resultList = query.getResultList();
+        System.out.println("resultListSize: " + resultList.size());
+
+
+
         return query.getResultList();
     }
 

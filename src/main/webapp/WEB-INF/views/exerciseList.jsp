@@ -12,7 +12,7 @@
 
         <h2>Tutaj lista Exercise</h2>
         <p>Wyświetlanie listy exercise</p>
-
+        <a href="/exercise/add">Add exercise</a><BR>
         <table border="1">
             <tr>
                 <td>Id</td>
