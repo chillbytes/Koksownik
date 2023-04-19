@@ -70,6 +70,12 @@ select * from workoutpositions
 
 insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(1, 10, 50, 1, 1);
 
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(2, 10, 30, 1, 1);
+
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(3, 10, 30, 1, 1);
+
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(4, 10, 30, 1, 1);
+
 
 select
     w2.position_number,
@@ -84,4 +90,5 @@ from workouts w
 left join workoutpositions w2 on w.id = w2.workout_template_id
 left join exercises e on w2.exercise_id = e.id
 left join exercise_modes em on w2.exercise_mode_id = em.id
-where w.id = 1;
+where w.id = 1
+order by w2.position_number;

@@ -26,9 +26,9 @@ public class WorkoutPosition {
 
     @ManyToOne
     private Exercise exercise;
-
-    @ManyToOne
-    private WorkoutTemplate workoutTemplate;
+//
+//    @ManyToOne
+//    private WorkoutTemplate workoutTemplate;
 
 
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Table(name = "workouts")
@@ -19,6 +20,10 @@ public class WorkoutTemplate {
 
 
     private String description;
+
+
+    @OneToMany
+    private List<WorkoutPosition> workoutPositions;
 
 //    @NotEmpty
 //    @ManyToMany

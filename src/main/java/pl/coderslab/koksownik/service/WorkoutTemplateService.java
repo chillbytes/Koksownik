@@ -31,4 +31,18 @@ public class WorkoutTemplateService {
         return workoutTemplateDao.findById(id);
 
     }
+
+    public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
+
+        return workoutTemplateDao.getWorkoutTemplateById(id);
+
+    }
+
+
+    public List<WorkoutTemplate> getWorkoutTemplateById2(Long id) {
+
+        return workoutTemplateRepository.getWorkoutTemplateById(id);
+
+    }
+
 }

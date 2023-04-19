@@ -10,83 +10,42 @@
     <body>
     <h1><spring:message code = "app.title" /> </h1><BR>
 
-    <H1>Edycja treningu ${workoutTemplate.name}</H1>
-    <H3>${workoutTemplate.description}</H3>
-
-<%--    <P>Ilość ćwiczeń w szablonie: ${workoutExercises.size()    }</P>--%>
-    <%--            Excercises:   <form:select path="exercises" multiple="true" items="${exerciseList}" itemValue="id" itemLabel="name"/><br>--%>
-
-<%--    <H2>Edycja szablonu ${workoutTemplate.name}</H2>--%>
-
-        <%--
-            tabelka zawierająca ćwiczenia
-            tabela zawiera:
-            nagłówek z nazwą szablonu treningu
-            Przyciski:
-            "usuń" --> usuwa szablon
-            "zapisz" --> zapiszuje szablon, przekierowuje do widoku szablonów
-            "dodaj ćwiczenie" --> przekierowuje do formularza dodania ćwiczenia
-
-            Kolumny:
-            "ID",
-            "Nazwa ćwiczenia",
-            "Ilość powtórzeń",
-            "Tryb ("Wprmout, workout, Failure, DropSet"),
-            "Waga"
-            exercises ???
-
-        --%>
-
-<%--        <c:if test="${exerciseList.size() gt 0}">--%>
-<%--            <table border="1">--%>
-<%--                <tr>--%>
-<%--                    <td>Id</td>--%>
-<%--                    <td>Tryb</td>--%>
-<%--                    <td>Nazwa</td>--%>
-<%--                    <td>Opis</td>--%>
-<%--                    <td>Powt</td>--%>
-<%--                    <td>Masa</td>--%>
-<%--                    <td></td>--%>
-<%--                </tr>--%>
-<%--                <c:forEach items="${exerciseList}" var="workoutExercises">--%>
-<%--                    <tr>--%>
-<%--                        <td>${exerciseList.id}</td>             &lt;%&ndash;id&ndash;%&gt;--%>
-<%--                        <td></td>                               &lt;%&ndash;tryb&ndash;%&gt;--%>
-<%--                        <td>${exerciseList.name}</td>           &lt;%&ndash;name&ndash;%&gt;--%>
-<%--                        <td>${exerciseList.description}</td>    &lt;%&ndash;desc&ndash;%&gt;--%>
-<%--                        <td></td>                               &lt;%&ndash;repetitions&ndash;%&gt;--%>
-<%--                        <td></td>                               &lt;%&ndash;weight&ndash;%&gt;--%>
-<%--                        <td> </td>--%>
-<%--                            &lt;%&ndash;                    <td><a href="/book/form/edit/${book.id}">Edytuj</a> <a href="/book/form/confirm/${book.id}">Usuń</a></td>&ndash;%&gt;--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
-<%--            </table>--%>
-<%--        </c:if>--%>
+    <H1>Edycja treningu ${workoutLines[0].name}</H1>
+    <H3>${workoutLines[0].description}</H3>
 
 
-
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Position Number</th>
+            <th>Repetitions</th>
+            <th>Weight</th>
+            <th>Exercise ID</th>
+            <th>Exercise Name</th>
+            <th>Exercise Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="workoutLine" items="${workoutLines}">
+            <tr>
+                <td>${workoutLine.id}</td>
+                <td>${workoutLine.name}</td>
+                <td>${workoutLine.description}</td>
+                <td>${workoutLine.workoutPosition.positionNumber}</td>
+                <td>${workoutLine.workoutPosition.repetitions}</td>
+                <td>${workoutLine.workoutPosition.weight}</td>
+                <td>${workoutLine.workoutPosition.exercise.id}</td>
+                <td>${workoutLine.workoutPosition.exercise.name}</td>
+                <td>${workoutLine.workoutPosition.exercise.description}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 
 
     <h3><spring:message code = "app.footer" /> </h3><BR>
     </body>
-</html>
-
-
-
-<%--@Id--%>
-<%--@GeneratedValue(strategy = GenerationType.IDENTITY)--%>
-<%--private Long id;--%>
-
-<%--@NotBlank--%>
-<%--private String name;--%>
-
-<%--private String description;--%>
-
-<%--@NotNull--%>
-<%--@ManyToOne--%>
-<%--private BodyPart bodyPart;--%>
-
-<%--@NotNull--%>
-<%--@ManyToOne--%>
-<%--private Category category;--%>
-
+</html> 

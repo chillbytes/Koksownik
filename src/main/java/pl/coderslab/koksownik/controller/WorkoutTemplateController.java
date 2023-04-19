@@ -34,10 +34,8 @@ public class WorkoutTemplateController {
 
     @GetMapping("/edit/{id}")
     public String edit (Model model, @PathVariable Long id) {
-        model.addAttribute("workoutTemplate", workoutTemplateService.findById(id));
-
-        //model.addAttribute("workoutExercises", exerciseService.findByWorkoutTemplateId(id));
-
+        model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById(id));  //DAO
+        //model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById2(id));           //Repository(native SQL)
         return "/workoutTemplateEdition";
     }
 
