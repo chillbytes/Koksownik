@@ -9,8 +9,8 @@
     <body>
     <h1><spring:message code = "app.title" /> </h1><BR>
 
-    <H1>Edycja treningu ${workoutLines[0].name}</H1>
-    <H3>${workoutLines[0].description}</H3>
+<%--    <H1>Edycja treningu ${workoutLines[0].name}</H1>--%>
+<%--    <H3>${workoutLines[0].description}</H3>--%>
 
 
     <table border="1">

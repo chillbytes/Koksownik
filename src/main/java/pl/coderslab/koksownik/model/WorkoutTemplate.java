@@ -18,12 +18,16 @@ public class WorkoutTemplate {
     @NotBlank
     private String name;
 
-
     private String description;
 
-
-    @OneToMany
+    @OneToMany(mappedBy="id")
     private List<WorkoutPosition> workoutPositions;
+
+
+
+
+
+
 
 //    @NotEmpty
 //    @ManyToMany
