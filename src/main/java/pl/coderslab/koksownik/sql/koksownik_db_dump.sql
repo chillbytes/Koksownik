@@ -167,7 +167,7 @@ CREATE TABLE `workoutpositions` (
   CONSTRAINT `FKdwio83ukpn3y5fu01sdo3rued` FOREIGN KEY (`workout_template_id`) REFERENCES `workouts` (`id`),
   CONSTRAINT `FKf87rv5twrhuy8qrjp87usvbhv` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`),
   CONSTRAINT `FKt7nku7w2sbjkhujo1ye3tbkyh` FOREIGN KEY (`exercise_mode_id`) REFERENCES `exercise_modes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +176,7 @@ CREATE TABLE `workoutpositions` (
 
 LOCK TABLES `workoutpositions` WRITE;
 /*!40000 ALTER TABLE `workoutpositions` DISABLE KEYS */;
-INSERT INTO `workoutpositions` VALUES (1,1,10,50,1,NULL,1);
+INSERT INTO `workoutpositions` VALUES (1,1,10,50,1,NULL,1),(2,2,10,30,1,NULL,1),(3,3,10,30,1,NULL,1),(4,4,10,30,1,NULL,1);
 /*!40000 ALTER TABLE `workoutpositions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,6 +204,32 @@ LOCK TABLES `workouts` WRITE;
 INSERT INTO `workouts` VALUES (1,'First training template','Trenng no 1');
 /*!40000 ALTER TABLE `workouts` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `workouts_workout_positions`
+--
+
+DROP TABLE IF EXISTS `workouts_workout_positions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `workouts_workout_positions` (
+  `workout_template_id` bigint NOT NULL,
+  `workout_positions_id` bigint NOT NULL,
+  UNIQUE KEY `UK_rsitib04wjixnbx0lqfsqm953` (`workout_positions_id`),
+  KEY `FKgm72bkl0xdoboae2ip8p8m0st` (`workout_template_id`),
+  CONSTRAINT `FKgm72bkl0xdoboae2ip8p8m0st` FOREIGN KEY (`workout_template_id`) REFERENCES `workouts` (`id`),
+  CONSTRAINT `FKuihku5ksvlk22i7m0gg513x9` FOREIGN KEY (`workout_positions_id`) REFERENCES `workoutpositions` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workouts_workout_positions`
+--
+
+LOCK TABLES `workouts_workout_positions` WRITE;
+/*!40000 ALTER TABLE `workouts_workout_positions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `workouts_workout_positions` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -214,4 +240,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-18 13:04:49
+-- Dump completed on 2023-04-19 16:12:18
