@@ -102,7 +102,7 @@ from workouts w
 left join workoutpositions w2 on w.id = w2.workout_template_id
 left join exercises e on w2.exercise_id = e.id
 left join exercise_modes em on w2.exercise_mode_id = em.id
-where w.id = 3
+where w.id = 2
 order by w2.position_number;
 
 

@@ -8,20 +8,54 @@
     </head>
     <body>
     <h1><spring:message code = "app.title" /> </h1><BR>
-
-
     <c:forEach items="${workoutLines}" var="workoutTemplate">
-        <p>Workout Name: ${workoutTemplate.name}</p>
-        <p>Workout Description: ${workoutTemplate.description}</p>
-        <c:forEach items="${workoutTemplate.workoutPositions}" var="workoutPosition">
-            <p>Position Number: ${workoutPosition.positionNumber}</p>
-            <p>Exercise Name: ${workoutPosition.exercise.name}</p>
-            <p>Exercise Description: ${workoutPosition.exercise.description}</p>
-            <p>Weight: ${workoutPosition.weight}</p>
-            <p>Repetitions: ${workoutPosition.repetitions}</p>
-            <p>Exercise Mode Name: ${workoutPosition.exerciseMode.name}</p>
-        </c:forEach>
+        <H3>${workoutTemplate.name}</H3>
+        <H4>${workoutTemplate.description}</H4>
     </c:forEach>
+    <table border = 1>
+        <thead>
+        <tr>
+            <th>Workout Name</th>
+            <th>Workout Description</th>
+            <th>Position Number</th>
+            <th>Exercise Name</th>
+            <th>Exercise Description</th>
+            <th>Weight</th>
+            <th>Repetitions</th>
+            <th>Exercise Mode Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${workoutLines}" var="workoutTemplate">
+            <c:forEach items="${workoutTemplate.workoutPositions}" var="workoutPosition">
+                <tr>
+                    <td>${workoutTemplate.name}</td>
+                    <td>${workoutTemplate.description}</td>
+                    <td>${workoutPosition.positionNumber}</td>
+                    <td>${workoutPosition.exercise.name}</td>
+                    <td>${workoutPosition.exercise.description}</td>
+                    <td>${workoutPosition.weight}</td>
+                    <td>${workoutPosition.repetitions}</td>
+                    <td>${workoutPosition.exerciseMode.name}</td>
+                </tr>
+            </c:forEach>
+        </c:forEach>
+        </tbody>
+    </table>
+
+
+<%--    <c:forEach items="${workoutLines}" var="workoutTemplate">--%>
+<%--        <p>Workout Name: ${workoutTemplate.name}</p>--%>
+<%--        <p>Workout Description: ${workoutTemplate.description}</p>--%>
+<%--        <c:forEach items="${workoutTemplate.workoutPositions}" var="workoutPosition">--%>
+<%--            <p>Position Number: ${workoutPosition.positionNumber}</p>--%>
+<%--            <p>Exercise Name: ${workoutPosition.exercise.name}</p>--%>
+<%--            <p>Exercise Description: ${workoutPosition.exercise.description}</p>--%>
+<%--            <p>Weight: ${workoutPosition.weight}</p>--%>
+<%--            <p>Repetitions: ${workoutPosition.repetitions}</p>--%>
+<%--            <p>Exercise Mode Name: ${workoutPosition.exerciseMode.name}</p>--%>
+<%--        </c:forEach>--%>
+<%--    </c:forEach>--%>
 
 
 
