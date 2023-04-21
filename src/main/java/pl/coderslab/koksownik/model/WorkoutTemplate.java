@@ -23,7 +23,7 @@ public class WorkoutTemplate {
     @OneToMany(mappedBy="id")
     private List<WorkoutPosition> workoutPositions;
 
-
+}
 
 
 
@@ -35,5 +35,3 @@ public class WorkoutTemplate {
 //                joinColumns = @JoinColumn(name = "workout_id"),
 //                inverseJoinColumns = @JoinColumn(name = "exercise_id"))
 //    private List<Exercise> exercises;
-
-}

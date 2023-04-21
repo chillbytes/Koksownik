@@ -15,15 +15,8 @@ public class ExerciseMode {
     private Long id;
 
     @NotBlank
-    private String name;    //warm-up
-                            //working set
-                            //drop set
-                            //failurea
+    private String name;
 
     private String description;
-
-
-
-
 
 }

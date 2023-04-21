@@ -9,16 +9,32 @@
     <body>
     <h1><spring:message code = "app.title" /> </h1><BR>
 
-    <c:forEach items="${workoutLines}" var="workoutLine">
-        <p>Position Number: ${workoutLine.positionNumber}</p>
-        <p>Workout Name: ${workoutLine.workoutName}</p>
-        <p>Workout Description: ${workoutLine.workoutDescription}</p>
-        <p>Exercise Name: ${workoutLine.exerciseName}</p>
-        <p>Exercise Description: ${workoutLine.exerciseDescription}</p>
-        <p>Weight: ${workoutLine.weight}</p>
-        <p>Repetitions: ${workoutLine.repetitions}</p>
-        <p>Exercise Mode Name: ${workoutLine.exerciseModeName}</p>
+
+    <c:forEach items="${workoutLines}" var="workoutTemplate">
+        <p>Workout Name: ${workoutTemplate.name}</p>
+        <p>Workout Description: ${workoutTemplate.description}</p>
+        <c:forEach items="${workoutTemplate.workoutPositions}" var="workoutPosition">
+            <p>Position Number: ${workoutPosition.positionNumber}</p>
+            <p>Exercise Name: ${workoutPosition.exercise.name}</p>
+            <p>Exercise Description: ${workoutPosition.exercise.description}</p>
+            <p>Weight: ${workoutPosition.weight}</p>
+            <p>Repetitions: ${workoutPosition.repetitions}</p>
+            <p>Exercise Mode Name: ${workoutPosition.exerciseMode.name}</p>
+        </c:forEach>
     </c:forEach>
+
+
+
+<%--    <c:forEach items="${workoutLines}" var="workoutLine">--%>
+<%--        <p>Position Number: ${workoutLine.positionNumber}</p>--%>
+<%--        <p>Workout Name: ${workoutLine.workoutName}</p>--%>
+<%--        <p>Workout Description: ${workoutLine.workoutDescription}</p>--%>
+<%--        <p>Exercise Name: ${workoutLine.exerciseName}</p>--%>
+<%--        <p>Exercise Description: ${workoutLine.exerciseDescription}</p>--%>
+<%--        <p>Weight: ${workoutLine.weight}</p>--%>
+<%--        <p>Repetitions: ${workoutLine.repetitions}</p>--%>
+<%--        <p>Exercise Mode Name: ${workoutLine.exerciseModeName}</p>--%>
+<%--    </c:forEach>--%>
 
 
 
