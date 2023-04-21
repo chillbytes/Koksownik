@@ -24,14 +24,3 @@ public class WorkoutTemplate {
     private List<WorkoutPosition> workoutPositions;
 
 }
-
-
-
-
-
-//    @NotEmpty
-//    @ManyToMany
-//    @JoinTable(name = "workouts_exercises",
-//                joinColumns = @JoinColumn(name = "workout_id"),
-//                inverseJoinColumns = @JoinColumn(name = "exercise_id"))
-//    private List<Exercise> exercises;

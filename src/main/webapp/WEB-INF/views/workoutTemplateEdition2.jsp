@@ -1,24 +1,16 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: wj
+  Date: 21.04.2023
+  Time: 18:03
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>WorkoutTemplateEdition</title>
+    <title>Title</title>
 </head>
 <body>
 
-<%--private Long workoutTemplateId;--%>
-<%--private Long workoutPositionId;--%>
-<%--private Integer positionNumber;--%>
-<%--private String workoutName;--%>
-<%--private String workoutDescription;--%>
-<%--private String exerciseName;--%>
-<%--private String exerciseDescription;--%>
-<%--private Integer weight;--%>
-<%--private Integer repetitions;--%>
-<%--private String exerciseModeName;--%>
-
-<h3><spring:message code = "app.footer" /> </h3><BR>
 </body>
 </html>

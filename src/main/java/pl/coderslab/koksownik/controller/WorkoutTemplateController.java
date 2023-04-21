@@ -35,27 +35,22 @@ public class WorkoutTemplateController {
     @GetMapping("/edit/{id}")
     public String edit (Model model, @PathVariable Long id) {
         System.out.println("edit workout template: " + id);
-        model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById(id));  //DAO
-        //model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById2(id));           //Repository(native SQL)
+        model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById(id));
         return "/workoutTemplateEdition";
     }
-
-//    @GetMapping("/edit2/{id}")
-//    public String edit2 (Model model, @PathVariable Long id) {
-//        System.out.println("edit workout template (ver2) - id: " + id );
-//        model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById3(id));
-//        return "/workoutTemplateEdition2";
-//    }
-
-
-
-
-
     @PostMapping("/edit/{id}")
     public String editSave (WorkoutTemplate workoutTemplate) {
         workoutTemplateService.save(workoutTemplate);
-        return "workoutTemplateList";
+        return "/workoutTemplateList";
     }
+
+
+    @GetMapping("/edit2/{id}")
+    public String edit2(Model model, @PathVariable Long id) {
+        model.addAttribute("workoutLines2", workoutTemplateService.getWorkoutTemplateById3(id));
+        return "/workoutTemplateEdition2";
+    }
+
 
 
 
