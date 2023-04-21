@@ -28,18 +28,7 @@ public class WorkoutTemplateDao {
         return entityManager.find(WorkoutTemplate.class, id);
     }
 
-//    public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
-//        System.out.println("before DB query, id" + id);
-//
-//        Query query = entityManager.createQuery("SELECT wt.id, wt.name, wt.description, wp.id, wp.positionNumber, wp.repetitions, wp.weight, e.id, e.name, e.description, wt FROM WorkoutTemplate wt JOIN FETCH wt.workoutPositions wp JOIN FETCH wp.exercise e WHERE wt.id=:id");
-//        query.setParameter("id", id);
-//
-//
-//        List<WorkoutTemplate> resultList = query.getResultList();
-//        System.out.println("resultListSize: " + resultList.size());
-//
-//        return query.getResultList();
-//    }
+
 
     public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
         Query query = entityManager.createQuery("SELECT DISTINCT wt FROM WorkoutTemplate wt   JOIN FETCH wt.workoutPositions wp   JOIN FETCH wp.exercise e   JOIN FETCH wp.exerciseMode em WHERE wt.id=:id");
@@ -49,28 +38,45 @@ public class WorkoutTemplateDao {
         List<WorkoutTemplate> resultList = query.getResultList();
         System.out.println("resultListSize: " + resultList.size());
         System.out.println("\n\n++++++++++++++++++++++++++++++++++++");
-//        TypedQuery<WorkoutTemplate> query1 = entityManager.createQuery(
-//                "SELECT wt FROM WorkoutTemplate wt " +
-//                        "  JOIN wt.workoutPositions wp " +
-//                        "  JOIN wp.exercise e " +
-//                        "  JOIN wp.exerciseMode em " +
-//                        "WHERE wt.id=:id", WorkoutTemplate.class);
-//        query.setParameter("id", id);
-//
-//        List<WorkoutTemplate> resultList1 = query.getResultList();
-//
-//        for (WorkoutTemplate wt : resultList1) {
-//            System.out.println(wt.getName());
-//            for (WorkoutPosition wp : wt.getWorkoutPositions()) {
-//                //System.out.println(wp.getPosition());
-//                System.out.println(wp.getExercise().getName());
-//                System.out.println(wp.getExerciseMode().getName());
-//            }
-//        }
+
 
         System.out.println("\n\n++++++++++++++++++++++++++++++++++++");
         return query.getResultList();
     }
+
+    //    zapytanie z joinaami zamieniłem na widok w bazie i z java odpytuję widok
+    //    Query q2 = entityManager.createNativeQuery("select * from workouts_vw where id=?");
+    //    q2.setParameter(1,id);
+    //    List<WorkoutModel> r2 = q2.getResultList();
+    //System.out.println("******BR****** dao result q2r2 "+r2.size());
+
+//    public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
+//        //Query query = entityManager.createQuery("SELECT DISTINCT wt FROM WorkoutTemplate wt   JOIN FETCH wt.workoutPositions wp   JOIN FETCH wp.exercise e   JOIN FETCH wp.exerciseMode em WHERE wt.id=:id");
+//        //query.setParameter("id", id);
+//        Query q2 = entityManager.createNativeQuery("select * from workouts_vw where id=?");
+//        q2.setParameter(1,id);
+//        List<WorkoutModel> r2 = q2.getResultList();
+//
+//    }
+
+//    public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
+//        Query query = entityManager.createQuery("SELECT wt.id, wt.name, wt.description, " +
+//                "wp.id, wp.positionNumber, wp.repetitions, wp.weight, em.id, em.name, em.description, " +
+//                "ex.id, ex.name, ex.description, bp.id, bp.name, " +
+//                "cat.id, cat.name, cat.multiplier " +
+//                "FROM WorkoutTemplate wt " +
+//                "JOIN wt.workoutPositions wp " +
+//                "JOIN wp.exercise ex " +
+//                "JOIN ex.bodyPart bp " +
+//                "JOIN ex.category cat " +
+//                "LEFT JOIN wp.exerciseMode em " +
+//                "WHERE wt.id=:id");
+//        query.setParameter("id", id);
+//        //query.unwrap(org.hibernate.query.Query.class).setResultTransformer(new WorkoutTemplateResultTransformer());
+//        return query.getResultList();
+//    }
+
+
 
 
 }

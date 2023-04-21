@@ -116,3 +116,48 @@ select * from exercises where category_id = 2
 
 select * from categories
 delete from categories where id = 2
+
+
+
+select
+    w.id,
+    w2.id,
+    w2.position_number,
+    w.name,
+    w.description,
+    e.name,
+    e.description,
+    w2.weight,
+    w2.repetitions,
+    em.name
+from workouts w
+left join workoutpositions w2 on w.id = w2.workout_template_id
+left join exercises e on w2.exercise_id = e.id
+left join exercise_modes em on w2.exercise_mode_id = em.id
+where 1 =1
+   and w.id = 1
+order by w2.position_number;
+
+
+
+
+CREATE VIEW v_workouts AS
+select
+    w.id as wid,
+    w2.id as lid,
+    w2.position_number,
+    w.name as wname,
+    w.description as wdesc,
+    e.name as ename,
+    e.description as edesc,
+    w2.weight,
+    w2.repetitions,
+    em.name as emname
+from workouts w
+left join workoutpositions w2 on w.id = w2.workout_template_id
+left join exercises e on w2.exercise_id = e.id
+left join exercise_modes em on w2.exercise_mode_id = em.id
+where 1 = 1;
+
+
+select * from  v_workouts where wid = 1 order by position_number;

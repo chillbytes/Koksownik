@@ -40,6 +40,14 @@ public class WorkoutTemplateController {
         return "/workoutTemplateEdition";
     }
 
+//    @GetMapping("/edit2/{id}")
+//    public String edit2 (Model model, @PathVariable Long id) {
+//        System.out.println("edit workout template (ver2) - id: " + id );
+//        model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById3(id));
+//        return "/workoutTemplateEdition2";
+//    }
+
+
 
 
 
@@ -48,6 +56,8 @@ public class WorkoutTemplateController {
         workoutTemplateService.save(workoutTemplate);
         return "workoutTemplateList";
     }
+
+
 
 
     @GetMapping("/add")

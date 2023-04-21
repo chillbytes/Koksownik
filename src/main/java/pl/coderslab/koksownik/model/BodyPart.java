@@ -17,12 +17,9 @@ public class BodyPart {
 
     @NotBlank
     private String name;
-
-
-    //legs
-    //chest
-    //back
-    //shoulders
-    //arms
-
 }
+//legs
+//chest
+//back
+//shoulders
+//arms

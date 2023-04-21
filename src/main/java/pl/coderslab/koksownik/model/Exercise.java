@@ -28,6 +28,4 @@ public class Exercise {
     @NotNull
     @ManyToOne
     private Category category;
-
-
 }

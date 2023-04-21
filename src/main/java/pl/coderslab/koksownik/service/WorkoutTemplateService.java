@@ -38,6 +38,10 @@ public class WorkoutTemplateService {
 
     }
 
+//    public List<CustomWorkout> getWorkoutTemplateById3(Long id) {
+//        return workoutTemplateDao.getWorkoutTemplateById2(id);
+//    }
+
 
     public List<WorkoutTemplate> getWorkoutTemplateById2(Long id) {
 
