@@ -4,6 +4,7 @@
 <html>
 <head>
   <title>Add category</title>
+  <style><%@include file="/WEB-INF/style/style.css"%></style>
 </head>
 <body>
 

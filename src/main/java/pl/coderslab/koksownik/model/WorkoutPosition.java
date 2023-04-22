@@ -13,7 +13,7 @@ public class WorkoutPosition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long positionNumber;        //pozycja na liście szablonu treningu
+    //private Long positionNumber;        //pozycja na liście szablonu treningu
 
     private Integer repetitions;        //ilość powtórzeń
 
@@ -29,6 +29,13 @@ public class WorkoutPosition {
     private WorkoutTemplate workoutTemplate;
 
 
+    public WorkoutPosition() {
+    }
+
+    public WorkoutPosition(WorkoutTemplate workoutTemplate) {
+        this.workoutTemplate = workoutTemplate;
+    }
+
     public Long getId() {
         return id;
     }
@@ -37,13 +44,13 @@ public class WorkoutPosition {
         this.id = id;
     }
 
-    public Long getPositionNumber() {
-        return positionNumber;
-    }
-
-    public void setPositionNumber(Long positionNumber) {
-        this.positionNumber = positionNumber;
-    }
+//    public Long getPositionNumber() {
+//        return positionNumber;
+//    }
+//
+//    public void setPositionNumber(Long positionNumber) {
+//        this.positionNumber = positionNumber;
+//    }
 
     public Integer getRepetitions() {
         return repetitions;

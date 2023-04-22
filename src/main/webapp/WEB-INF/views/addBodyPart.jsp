@@ -4,6 +4,8 @@
 <html>
     <head>
         <title>Add body part</title>
+        <style><%@include file="/WEB-INF/style/style.css"%></style>
+
     </head>
     <body>
 

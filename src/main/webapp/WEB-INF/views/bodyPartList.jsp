@@ -8,6 +8,7 @@
 <html>
     <head>
         <title>BodyPartlist</title>
+        <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
         <h1><spring:message code = "app.title" /> </h1><BR>

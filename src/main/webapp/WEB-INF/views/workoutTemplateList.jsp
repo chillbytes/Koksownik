@@ -5,6 +5,7 @@
 <html>
     <head>
         <title>WorkoutTemplateList</title>
+        <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
 

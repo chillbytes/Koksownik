@@ -4,29 +4,11 @@
 
     <head>
         <title>Title</title>
+        <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
 
     <body>
         <h1><spring:message code = "app.title" /> </h1><BR>
-<%--        <p><spring:message code="app.hello" arguments ="Wojtek"/></p><BR>--%>
-<%--        <P>Hello Springbook - widok!</P>--%>
-<%--        <P>Hello Springbook - widok!</P>--%>
-<%--        <P>Hello Springbook - widok!</P>--%>
-
-<%--
-        add body part:      /bodyPart/add
-        add category:       /category/add
-        add exercise:       /exercise/add
-        add waorkoutTemp:   /workoutTemplate/add
-
---%>
-<%--        <a href = "/bodyPart/list">Body parts</a>--%>
-<%--        <a href = "/category/list">Categories</a>--%>
-<%--        <a href = "/exercise/list">Exercises</a>--%>
-<%--        <a href = "/workoutTemplate/list">Workout templates</a>--%>
-
-<%--        <br><br>--%>
-
 
 
         <a href = "/bodyPart/add">Add body part</a><br>

@@ -4,49 +4,49 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>WorkoutTemplateEdition</title>
+        <title>Edit workout template</title>
+        <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
-    <h1><spring:message code = "app.title" /> </h1><BR>
 
+        <h1><spring:message code = "app.title" /> </h1><BR>
 
+        <c:forEach items="${workoutTemplate}" var="workoutTemplate" varStatus="status">
+            <c:if test="${status.index == 0}">
 
+                <H3>${workoutTemplate.name   }</H3>
+                <H4>${workoutTemplate.description}</H4>
+                <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Add exercise</a><BR>
 
-        <c:forEach items="${workoutLines}" var="workoutTemplate">
-        <H3>${workoutTemplate.name}</H3>
-        <H4>${workoutTemplate.description}</H4>
+            </c:if>
         </c:forEach>
+
+
         <table border = 1>
             <thead>
             <tr>
-                <th>Workout Name</th>
-                <th>Workout Description</th>
                 <th>Position Number</th>
-                <th>Exercise Name</th>
-                <th>Exercise Description</th>
-                <th>Weight</th>
                 <th>Repetitions</th>
-                <th>Exercise Mode Name</th>
+                <th>Weight</th>
+                <th>Exercise Mode</th>
+                <th>Exercise</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${workoutLines}" var="workoutTemplate">
-                <c:forEach items="${workoutTemplate.workoutPositions}" var="workoutPosition">
-                    <tr>
-                        <td>${workoutTemplate.name}</td>
-                        <td>${workoutTemplate.description}</td>
-                        <td>${workoutPosition.positionNumber}</td>
-                        <td>${workoutPosition.exercise.name}</td>
-                        <td>${workoutPosition.exercise.description}</td>
-                        <td>${workoutPosition.weight}</td>
-                        <td>${workoutPosition.repetitions}</td>
-                        <td>${workoutPosition.exerciseMode.name}</td>
-                    </tr>
-                </c:forEach>
+            <c:forEach var="workoutPosition" items="${workoutLines}">
+                <tr>
+                    <td>${workoutPosition.id}</td>
+                    <td>${workoutPosition.repetitions}</td>
+                    <td>${workoutPosition.weight}</td>
+                    <td>${workoutPosition.exerciseMode.name}</td>
+                    <td>${workoutPosition.exercise.name}</td>
+                    <td><a href = "/workoutTemplate/delete/${workoutPosition.workoutTemplate.id}/${workoutPosition.id}">Delete</a></td>
+                </tr>
             </c:forEach>
             </tbody>
-    </table>
+        </table>
 
-    <h3><spring:message code = "app.footer" /> </h3><BR>
+        <h3><spring:message code = "app.footer" /> </h3><BR>
     </body>
 </html>

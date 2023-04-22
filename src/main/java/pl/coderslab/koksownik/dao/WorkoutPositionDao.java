@@ -19,6 +19,10 @@ public class WorkoutPositionDao {
         entityManager.remove(workoutPosition);
     }
 
+    public void save(WorkoutPosition workoutPosition) {
 
+        entityManager.persist(workoutPosition);
+
+    }
 
 }

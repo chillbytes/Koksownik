@@ -173,3 +173,6 @@ where 1 = 1;
 select * from  v_workouts where id = 1 order by position_number;
 
 drop view v_workouts
+
+
+select * from workoutpositions;

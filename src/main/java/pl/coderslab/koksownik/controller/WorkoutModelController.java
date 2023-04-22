@@ -2,9 +2,6 @@ package pl.coderslab.koksownik.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.koksownik.service.WorkoutModelService;
 
@@ -15,9 +12,9 @@ public class WorkoutModelController {
     private final WorkoutModelService workoutModelService;
 
 
-    @GetMapping("/edit2/{id}")
-    public String edit2(Model model, @PathVariable Long id) {
-        model.addAttribute("workoutLines2", workoutModelService.getWorkoutTemplateById(id));
-        return "/workoutTemplateEdition2";
-    }
+//    @GetMapping("/edit2/{id}")
+//    public String edit2(Model model, @PathVariable Long id) {
+//        model.addAttribute("workoutLines2", workoutModelService.getWorkoutTemplateById(id));
+//        return "/workoutTemplateEdition2";
+//    }
 }

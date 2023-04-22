@@ -24,13 +24,6 @@ public class ExerciseService {
 
     }
 
-//    public Exercise findById(long id) {
-//
-//
-//        return exerciseDao.findById(id);
-//
-//    }
-
 
     public List<Exercise> findByWorkoutTemplateId(Long id) {
 
@@ -39,6 +32,8 @@ public class ExerciseService {
     }
 
     public List<Exercise> getAllExercises () {
+
         return exerciseDao.all();
+
     }
 }

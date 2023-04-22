@@ -14,6 +14,10 @@ public class WorkoutPositionService {
     private final WorkoutPositionDao workoutPositionDao;
     private final WorkoutPositionRepository workoutPositionRepository;
 
+    public WorkoutPosition findById(Long id) {
+        return workoutPositionRepository.getWorkoutPositionById(id);
+    }
+
     public List<WorkoutPosition> getWorkoutTemplatePositionsByWorkoutTemplateId(Long id) {
 
         return workoutPositionRepository.readWorkoutPositionsByWorkoutTemplateId(id);
@@ -30,5 +34,12 @@ public class WorkoutPositionService {
     public WorkoutPosition getWorkoutPositionById(Long id) {
         return workoutPositionRepository.getWorkoutPositionById(id);
     }
+
+    public void save(WorkoutPosition workoutPosition) {
+
+        workoutPositionDao.save(workoutPosition);
+
+    }
+
 }
 
