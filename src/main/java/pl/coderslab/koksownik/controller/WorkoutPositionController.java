@@ -59,6 +59,13 @@ public class WorkoutPositionController {
     @PostMapping("/addPosition/{workoutTemplateId}")
     public String addAndSaveWorkoutTemplatePosition(WorkoutPosition workoutPosition, Model model, @PathVariable Long workoutTemplateId){
 
+        Exercise exercise = exerciseService.getExerciseById(workoutPosition.getExercise().getId());
+
+        // Set the Exercise object on the WorkoutPosition
+        workoutPosition.setExercise(exercise);
+
+
+
         workoutPositionService.save(workoutPosition);
 
         model.addAttribute("workoutLines", workoutPositionService.getWorkoutTemplatePositionsByWorkoutTemplateId(workoutTemplateId));

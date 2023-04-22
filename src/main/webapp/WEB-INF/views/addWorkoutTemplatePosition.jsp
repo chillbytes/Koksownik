@@ -10,10 +10,6 @@
     <body>
         <h1><spring:message code = "app.title" /> </h1><BR>
 
-<%--        model atribute: exerciseList--%>
-
-
-        <%--        //form for adding workout template position --%>
         <form:form method="post" modelAttribute="workoutPosition">
 
             Exercise:    <form:select path="exercise"><br>

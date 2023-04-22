@@ -12,6 +12,8 @@ public interface ExerciseRepository extends JpaRepository<Category, Long> {
 
     List<Exercise> readExerciseByName(String name);
 
+    Exercise getExerciseById(Long id);
+
     @Query (nativeQuery = true, value = "SELECT e.* FROM workouts w INNER JOIN workouts_excercises we ON w.id = we.workout_id INNER JOIN exercises e ON we.excercise_id = e.id WHERE w.id =:workoutId")
     List<Exercise> findExcercisesOfWorkoutTemplate(@Param("workoutId") Long id);
 
