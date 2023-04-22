@@ -89,6 +89,11 @@ insert into workoutpositions (position_number, repetitions, weight, exercise_id,
 insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(4, 10, 30, 1, 1);
 
 
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(5, 9, 50, 13, 1);
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(6, 11, 70, 12, 1);
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(7, 13, 40, 9, 1);
+insert into workoutpositions (position_number, repetitions, weight, exercise_id, workout_template_id) values(8, 8, 22, 7, 1);
+
 select
     w2.position_number,
     w.name,

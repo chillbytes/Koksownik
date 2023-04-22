@@ -8,7 +8,7 @@ package pl.coderslab.koksownik.converter;
 //    @Override
 //    public Exercise convert(String s) {
 //
-//        return exerciseService.findById(Long.parseLong(s));
+//        return exerciseService.getExerciseById(Long.parseLong(s));
 //
 //    }
 //

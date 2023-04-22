@@ -10,17 +10,17 @@
     <body>
         <h1><spring:message code = "app.title" /> </h1><BR>
 
-<%--        model atribute: exerciseList--%>
-
-
-        <%--        //form for adding workout template position --%>
         <form:form method="post" modelAttribute="workoutPosition">
 
-            Exercise:    <form:select path="exercise"><br>
+            Mode:    <form:select path="exerciseMode"><br>
             <form:option value="0" label="-- wybierz --"/>
-            <form:options items="${exerciseList}" itemLabel="name" itemValue="id"/><br>
-
+            <form:options items="${exerciseModesList}" itemLabel="name" itemValue="id"/><br>
             </form:select><br>
+
+<%--            Exercise:    <form:select path="exercise"><br>--%>
+<%--            <form:option value="0" label="-- wybierz --"/>--%>
+<%--            <form:options items="${exerciseList}" itemLabel="name" itemValue="id"/><br>--%>
+<%--            </form:select><br>--%>
 
             Repetitions:         <form:input path="repetitions" type="number"/><br>
             Weight:              <form:input path="weight"      type="number"/><br>

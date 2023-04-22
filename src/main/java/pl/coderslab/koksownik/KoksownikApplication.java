@@ -13,6 +13,8 @@ public class KoksownikApplication {
         );
     }
 
+
+//
 //    @Bean
 //    public ExerciseConverter getExerciseConverter() {
 //

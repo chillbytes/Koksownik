@@ -26,31 +26,6 @@ public class WorkoutTemplateController {
 
     }
 
-//    @ModelAttribute("templateExerciseList")
-//    public List<Exercise> getWorkoutTemplatesExercises(Long id) {
-//        return exerciseService.findByWorkoutTemplateId(id);
-//    }
-
-
-//    @GetMapping("/edit/{id}")
-//    public String edit (Model model, @PathVariable Long id) {
-//        System.out.println("edit workout template: " + id);
-//        model.addAttribute("workoutLines", workoutTemplateService.getWorkoutTemplateById(id));
-//        return "/workoutTemplateEdition";
-//    }
-//    @PostMapping("/edit/{id}")
-//    public String editSave (WorkoutTemplate workoutTemplate) {
-//        workoutTemplateService.save(workoutTemplate);
-//        return "/workoutTemplateList";
-//    }
-
-
-
-
-
-
-
-
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("workoutTemplate", new WorkoutTemplate());
@@ -74,6 +49,5 @@ public class WorkoutTemplateController {
 
         return "/workoutTemplateList";
     }
-
 
 }

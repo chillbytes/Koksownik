@@ -36,4 +36,12 @@ public class ExerciseService {
         return exerciseDao.all();
 
     }
+
+    public Exercise getExerciseById(Long id){
+        return exerciseRepository.getExerciseById(id);
+    }
+
+    public Exercise findById(Long id){
+        return exerciseRepository.getExerciseById(id);
+    }
 }

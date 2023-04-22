@@ -5,8 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.koksownik.model.Exercise;
+import pl.coderslab.koksownik.model.ExerciseMode;
 import pl.coderslab.koksownik.model.WorkoutPosition;
 import pl.coderslab.koksownik.model.WorkoutTemplate;
+import pl.coderslab.koksownik.repository.ExerciseRepository;
+import pl.coderslab.koksownik.service.ExerciseModeService;
 import pl.coderslab.koksownik.service.ExerciseService;
 import pl.coderslab.koksownik.service.WorkoutPositionService;
 import pl.coderslab.koksownik.service.WorkoutTemplateService;
@@ -20,12 +23,17 @@ public class WorkoutPositionController {
     private final WorkoutTemplateService workoutTemplateService;
     private final WorkoutPositionService workoutPositionService;
     private final ExerciseService exerciseService;
+    private final ExerciseRepository exerciseRepository;
+    private final ExerciseModeService exerciseModeService;
 
     @ModelAttribute("exerciseList")
     public List<Exercise> getExerciseList(){
         return exerciseService.all();
     }
-
+    @ModelAttribute("exerciseModesList")
+    public List<ExerciseMode> getExerciseModesList(){
+        return exerciseModeService.getExerciseModesList();
+    }
 
 
     @GetMapping("/edit/{id}")
@@ -57,12 +65,26 @@ public class WorkoutPositionController {
     }
 
     @PostMapping("/addPosition/{workoutTemplateId}")
+
     public String addAndSaveWorkoutTemplatePosition(WorkoutPosition workoutPosition, Model model, @PathVariable Long workoutTemplateId){
+
+
+        //Exercise exercise = exerciseService.getExerciseById(workoutPosition.getExercise().getId());
+        Exercise exercise = exerciseService.getExerciseById(13l); //debug
+        workoutPosition.setExercise(exercise);
+
+
+        System.out.println("\n\n\n@PostMapping(\"/addPosition/{workoutTemplateId}\")\nWorkout template id:" + workoutTemplateId + "\n\n");
+        System.out.println("workout position id: " + workoutPosition.getId());
+        System.out.println("\n\n\n");
+
 
         workoutPositionService.save(workoutPosition);
 
         model.addAttribute("workoutLines", workoutPositionService.getWorkoutTemplatePositionsByWorkoutTemplateId(workoutTemplateId));
         return "/workoutTemplateEdition";
     }
+
+
 
 }
