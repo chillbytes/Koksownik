@@ -2,7 +2,6 @@ package pl.coderslab.koksownik.dao;
 
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.koksownik.model.WorkoutModel;
 import pl.coderslab.koksownik.model.WorkoutTemplate;
 
 import javax.persistence.EntityManager;
@@ -51,13 +50,7 @@ public class WorkoutTemplateDao {
     //    List<WorkoutModel> r2 = q2.getResultList();
     //System.out.println("******BR****** dao result q2r2 "+r2.size());
 
-    public List<WorkoutModel> getWorkoutTemplateById2(Long id) {
-        Query q2 = entityManager.createNativeQuery("select * from v_workouts where wid=?");
-        q2.setParameter(1,id);
-        List<WorkoutModel> r2 = q2.getResultList();
-        return q2.getResultList();
 
-    }
 
 //    public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
 //        Query query = entityManager.createQuery("SELECT wt.id, wt.name, wt.description, " +

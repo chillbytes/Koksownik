@@ -45,11 +45,7 @@ public class WorkoutTemplateController {
     }
 
 
-    @GetMapping("/edit2/{id}")
-    public String edit2(Model model, @PathVariable Long id) {
-        model.addAttribute("workoutLines2", workoutTemplateService.getWorkoutTemplateById3(id));
-        return "/workoutTemplateEdition2";
-    }
+
 
 
 

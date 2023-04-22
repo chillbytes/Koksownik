@@ -143,21 +143,33 @@ order by w2.position_number;
 
 CREATE VIEW v_workouts AS
 select
-    w.id as wid,
-    w2.id as lid,
-    w2.position_number,
-    w.name as wname,
-    w.description as wdesc,
-    e.name as ename,
-    e.description as edesc,
-    w2.weight,
-    w2.repetitions,
-    em.name as emname
+    w.id as id,
+    w2.position_number as position_number,
+    w.name as workoutName,
+    w.description as workoutDesc,
+    e.name as elementName,
+    e.description as elementDesc,
+    w2.weight as weight,
+    w2.repetitions as repetitions,
+    em.name as excerciseModeName
 from workouts w
 left join workoutpositions w2 on w.id = w2.workout_template_id
 left join exercises e on w2.exercise_id = e.id
 left join exercise_modes em on w2.exercise_mode_id = em.id
 where 1 = 1;
 
+# private Integer id;
+# private Integer position_number;
+# private String workoutName;
+# private String workoutDesc;
+# private String elementName;
+# private String elementDesc;
+# private Float weight;
+# private Integer repetitions;
+# private String excerciseModeName;
 
-select * from  v_workouts where wid = 1 order by position_number;
+
+
+select * from  v_workouts where id = 1 order by position_number;
+
+drop view v_workouts

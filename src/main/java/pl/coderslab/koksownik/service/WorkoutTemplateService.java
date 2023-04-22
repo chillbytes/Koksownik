@@ -3,7 +3,6 @@ package pl.coderslab.koksownik.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.coderslab.koksownik.dao.WorkoutTemplateDao;
-import pl.coderslab.koksownik.model.WorkoutModel;
 import pl.coderslab.koksownik.model.WorkoutTemplate;
 import pl.coderslab.koksownik.repository.WorkoutTemplateRepository;
 
@@ -39,9 +38,7 @@ public class WorkoutTemplateService {
 
     }
 
-    public List<WorkoutModel> getWorkoutTemplateById3(Long id) {
-        return workoutTemplateDao.getWorkoutTemplateById2(id);
-    }
+
 
 
     public List<WorkoutTemplate> getWorkoutTemplateById2(Long id) {
