@@ -26,7 +26,7 @@ CREATE TABLE `bodyparts` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `bodyparts` (
 
 LOCK TABLES `bodyparts` WRITE;
 /*!40000 ALTER TABLE `bodyparts` DISABLE KEYS */;
-INSERT INTO `bodyparts` VALUES (1,'Chest'),(2,'Back');
+INSERT INTO `bodyparts` VALUES (1,'Chest'),(2,'Back'),(3,'Legs'),(4,'Arms'),(5,'Shoulders');
 /*!40000 ALTER TABLE `bodyparts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ CREATE TABLE `categories` (
   `multiplier` int NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,1,'Barbell'),(2,2,'Dumbell');
+INSERT INTO `categories` VALUES (1,1,'Barbel'),(3,2,'Dumbell'),(4,1,'Machine'),(5,1,'Bodyweight');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,7 +76,7 @@ CREATE TABLE `exercise_modes` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,6 +85,7 @@ CREATE TABLE `exercise_modes` (
 
 LOCK TABLES `exercise_modes` WRITE;
 /*!40000 ALTER TABLE `exercise_modes` DISABLE KEYS */;
+INSERT INTO `exercise_modes` VALUES (1,'','Work out'),(2,'','Warmout'),(3,'','Failure'),(4,'','Drop set');
 /*!40000 ALTER TABLE `exercise_modes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +107,7 @@ CREATE TABLE `exercises` (
   KEY `FKire7458l3f5p2odvr56iv4ew1` (`category_id`),
   CONSTRAINT `FKbfrh4202ef14ooi7dnfmj97xb` FOREIGN KEY (`body_part_id`) REFERENCES `bodyparts` (`id`),
   CONSTRAINT `FKire7458l3f5p2odvr56iv4ew1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,35 +116,29 @@ CREATE TABLE `exercises` (
 
 LOCK TABLES `exercises` WRITE;
 /*!40000 ALTER TABLE `exercises` DISABLE KEYS */;
-INSERT INTO `exercises` VALUES (1,'Martwy ciąg','Deadlift',2,1);
+INSERT INTO `exercises` VALUES (1,'','Chest press',1,1),(2,'','Deadlift',2,1),(3,'Shrug','Shrug',2,1),(4,'','Standing calf rise',3,1),(5,'','Leg press',3,1),(6,'','Hack squat',3,1),(7,'','Leg curl',3,1),(8,'','Leg extension',3,1),(9,'','Chest fly',1,4),(10,'','Dubbel fly',1,3),(11,'','Barel press',1,3),(12,'','Arnold press',5,3),(13,'','Back extension',2,4),(14,'','Dumbbell bench press',1,3),(15,'','Bent over one arm row',2,3),(16,'','Bent over row',2,1),(17,'','Bicep curl',4,1),(18,'','Cable crosover',1,4),(19,'','Coffin press',1,3),(20,'','Decline bench press',1,3),(21,'','Face pulls',5,4),(22,'','Front rise',5,1),(23,'','Hammer curl',4,3),(24,'','Hip thrust',3,1),(25,'','Incline bench press',1,1),(26,'','Incline chest fly',1,3),(27,'','Incline row',2,3),(28,'','Lat pull down',2,4),(29,'','Lunge',3,3),(30,'','Overhead press',5,1),(31,'','Preacher curl',4,1),(32,'','Pullover',2,1),(33,'','Reverse curl',4,1),(34,'','Romanian deadlift',2,1),(35,'','Shoulder press',5,3),(36,'','Side laterals',5,3),(37,'','Skullcrusher',4,1),(38,'','Squat',3,1),(39,'','Step up',3,3),(40,'','Stiff leg deadlift',3,1),(41,'','Sumo deadlift',2,1),(42,'','Tricep extension',4,4),(43,'','Tricep extension dumbbells',4,3);
 /*!40000 ALTER TABLE `exercises` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `series`
+-- Temporary view structure for view `v_workouts`
 --
 
-DROP TABLE IF EXISTS `series`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+DROP TABLE IF EXISTS `v_workouts`;
+/*!50001 DROP VIEW IF EXISTS `v_workouts`*/;
+SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `series` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `mass` int DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `repetition` int DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `series`
---
-
-LOCK TABLES `series` WRITE;
-/*!40000 ALTER TABLE `series` DISABLE KEYS */;
-/*!40000 ALTER TABLE `series` ENABLE KEYS */;
-UNLOCK TABLES;
+/*!50001 CREATE VIEW `v_workouts` AS SELECT 
+ 1 AS `id`,
+ 1 AS `position_number`,
+ 1 AS `workoutName`,
+ 1 AS `workoutDesc`,
+ 1 AS `elementName`,
+ 1 AS `elementDesc`,
+ 1 AS `weight`,
+ 1 AS `repetitions`,
+ 1 AS `excerciseModeName`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `workoutpositions`
@@ -167,7 +162,7 @@ CREATE TABLE `workoutpositions` (
   CONSTRAINT `FKdwio83ukpn3y5fu01sdo3rued` FOREIGN KEY (`workout_template_id`) REFERENCES `workouts` (`id`),
   CONSTRAINT `FKf87rv5twrhuy8qrjp87usvbhv` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`),
   CONSTRAINT `FKt7nku7w2sbjkhujo1ye3tbkyh` FOREIGN KEY (`exercise_mode_id`) REFERENCES `exercise_modes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +171,7 @@ CREATE TABLE `workoutpositions` (
 
 LOCK TABLES `workoutpositions` WRITE;
 /*!40000 ALTER TABLE `workoutpositions` DISABLE KEYS */;
-INSERT INTO `workoutpositions` VALUES (1,1,10,50,1,NULL,1),(2,2,10,30,1,NULL,1),(3,3,10,30,1,NULL,1),(4,4,10,30,1,NULL,1);
+INSERT INTO `workoutpositions` VALUES (1,1,10,50,1,1,1),(2,2,10,30,1,1,1),(5,3,10,30,1,1,1),(6,4,10,30,1,1,1),(7,5,9,50,13,1,1),(8,6,11,70,12,1,1),(9,7,13,40,9,1,1),(10,8,8,22,7,1,1),(11,NULL,11,12,NULL,4,NULL),(12,NULL,111,111,NULL,3,NULL),(13,NULL,111,111,NULL,3,NULL),(14,NULL,20,100,NULL,4,NULL),(15,NULL,11,111,NULL,4,NULL),(16,NULL,11,111,NULL,4,NULL),(17,NULL,11,111,NULL,4,NULL),(18,NULL,1111,111,NULL,4,NULL);
 /*!40000 ALTER TABLE `workoutpositions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +187,7 @@ CREATE TABLE `workouts` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,35 +196,27 @@ CREATE TABLE `workouts` (
 
 LOCK TABLES `workouts` WRITE;
 /*!40000 ALTER TABLE `workouts` DISABLE KEYS */;
-INSERT INTO `workouts` VALUES (1,'First training template','Trenng no 1');
+INSERT INTO `workouts` VALUES (1,'Workout no one','Workout1'),(2,'workout no. two','Workout 2 '),(3,'Workout number three','Workout 3');
 /*!40000 ALTER TABLE `workouts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `workouts_workout_positions`
+-- Final view structure for view `v_workouts`
 --
 
-DROP TABLE IF EXISTS `workouts_workout_positions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `workouts_workout_positions` (
-  `workout_template_id` bigint NOT NULL,
-  `workout_positions_id` bigint NOT NULL,
-  UNIQUE KEY `UK_rsitib04wjixnbx0lqfsqm953` (`workout_positions_id`),
-  KEY `FKgm72bkl0xdoboae2ip8p8m0st` (`workout_template_id`),
-  CONSTRAINT `FKgm72bkl0xdoboae2ip8p8m0st` FOREIGN KEY (`workout_template_id`) REFERENCES `workouts` (`id`),
-  CONSTRAINT `FKuihku5ksvlk22i7m0gg513x9` FOREIGN KEY (`workout_positions_id`) REFERENCES `workoutpositions` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `workouts_workout_positions`
---
-
-LOCK TABLES `workouts_workout_positions` WRITE;
-/*!40000 ALTER TABLE `workouts_workout_positions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `workouts_workout_positions` ENABLE KEYS */;
-UNLOCK TABLES;
+/*!50001 DROP VIEW IF EXISTS `v_workouts`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_workouts` AS select `w`.`id` AS `id`,`w2`.`position_number` AS `position_number`,`w`.`name` AS `workoutName`,`w`.`description` AS `workoutDesc`,`e`.`name` AS `elementName`,`e`.`description` AS `elementDesc`,`w2`.`weight` AS `weight`,`w2`.`repetitions` AS `repetitions`,`em`.`name` AS `excerciseModeName` from (((`workouts` `w` left join `workoutpositions` `w2` on((`w`.`id` = `w2`.`workout_template_id`))) left join `exercises` `e` on((`w2`.`exercise_id` = `e`.`id`))) left join `exercise_modes` `em` on((`w2`.`exercise_mode_id` = `em`.`id`))) where (1 = 1) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -240,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-19 16:12:18
+-- Dump completed on 2023-04-24 13:03:46

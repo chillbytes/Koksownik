@@ -25,7 +25,7 @@
         <table border = 1>
             <thead>
             <tr>
-                <th>Position Number</th>
+<%--                <th>Position Number</th>--%>
                 <th>Repetitions</th>
                 <th>Weight</th>
                 <th>Exercise Mode</th>
@@ -36,7 +36,7 @@
             <tbody>
             <c:forEach var="workoutPosition" items="${workoutLines}">
                 <tr>
-                    <td>${workoutPosition.id}</td>
+<%--                    <td>${workoutPosition.id}</td>--%>
                     <td>${workoutPosition.repetitions}</td>
                     <td>${workoutPosition.weight}</td>
                     <td>${workoutPosition.exerciseMode.name}</td>

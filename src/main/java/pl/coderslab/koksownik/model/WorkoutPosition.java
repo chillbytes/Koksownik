@@ -44,6 +44,11 @@ public class WorkoutPosition {
         this.id = id;
     }
 
+    public Long getExerciseId() {
+        return exercise != null ? exercise.getId() : null;
+    }
+
+
 //    public Long getPositionNumber() {
 //        return positionNumber;
 //    }

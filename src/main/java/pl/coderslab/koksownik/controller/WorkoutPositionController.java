@@ -66,16 +66,23 @@ public class WorkoutPositionController {
 
     @PostMapping("/addPosition/{workoutTemplateId}")
 
-    public String addAndSaveWorkoutTemplatePosition(WorkoutPosition workoutPosition, Model model, @PathVariable Long workoutTemplateId){
+    //public String addAndSaveWorkoutTemplatePosition(WorkoutPosition workoutPosition, Model model, @PathVariable Long workoutTemplateId){
+    public String addAndSaveWorkoutTemplatePosition(@RequestParam Long exerciseId, WorkoutPosition workoutPosition, Model model, @PathVariable Long workoutTemplateId){
 
 
         //Exercise exercise = exerciseService.getExerciseById(workoutPosition.getExercise().getId());
-        Exercise exercise = exerciseService.getExerciseById(13l); //debug
+        //Exercise exercise = exerciseService.getExerciseById(16l); //debug
+        Exercise exercise = exerciseService.getExerciseById(exerciseId);
         workoutPosition.setExercise(exercise);
 
+        WorkoutTemplate workoutTemplate = workoutTemplateService.findById(workoutTemplateId);
+        workoutPosition.setWorkoutTemplate(workoutTemplate);
 
+
+        System.out.println("\n\n\n");
         System.out.println("\n\n\n@PostMapping(\"/addPosition/{workoutTemplateId}\")\nWorkout template id:" + workoutTemplateId + "\n\n");
-        System.out.println("workout position id: " + workoutPosition.getId());
+        System.out.println("workout position id: " + workoutPosition.getId());        System.out.println("\n\n\n");
+        System.out.println("exercise id: " + exercise.getId());
         System.out.println("\n\n\n");
 
 
