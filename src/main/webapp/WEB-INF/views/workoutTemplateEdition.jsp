@@ -11,15 +11,22 @@
 
         <h1><spring:message code = "app.title" /> </h1><BR>
 
-        <c:forEach items="${workoutTemplate}" var="workoutTemplate" varStatus="status">
-            <c:if test="${status.index == 0}">
+<%--        <c:forEach items="${workoutTemplate}" var="workoutTemplate" varStatus="status">--%>
+<%-- --%>
+<%--            <c:if test="${status.index == 0}">--%>
 
-                <H3>${workoutTemplate.name   }</H3>
-                <H4>${workoutTemplate.description}</H4>
-                <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Add exercise</a><BR>
+<%--                <H3>${workoutTemplate.name   }</H3>--%>
+<%--                <H4>${workoutTemplate.description}</H4>--%>
+<%--                <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Add exercise</a><BR>--%>
 
-            </c:if>
-        </c:forEach>
+<%--            </c:if>--%>
+<%--        </c:forEach>--%>
+
+
+
+        <h3>${workoutTemplate.name  }</h3>
+        <h3>${workoutTemplate.description  }</h3>
+        <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Add exercise</a><BR><BR>
 
 
         <table border = 1>
