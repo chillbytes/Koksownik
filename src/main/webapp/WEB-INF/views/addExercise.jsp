@@ -7,31 +7,27 @@
       <style><%@include file="/WEB-INF/style/style.css"%></style>
   </head>
   <body>
-    <h1><spring:message code = "app.title" /> </h1><BR>
+    <h1><spring:message code = "app.title" /> </h1>
+    <h4><spring:message code = "app.footer" /> </h4>
 
-
-    <H3>Add Excercise</H3>
+    <H3>Nowe ćwiczenie</H3>
 
     <form:form method="post" modelAttribute="exercise">
 
-      Name:         <form:input path="name"/><br>
+      Nazwa:         <form:input path="name"/><br>
 
-      Description:  <form:input path="description"/><br>
+      Opis:         <form:input path="description"/><br>
 
-      Category:     <form:select path="category"><br>
+      Kategoria     <form:select path="category"><br>
                     <form:option value="0" label="-- wybierz --"/>
                     <form:options items="${categoryList}" itemLabel="name" itemValue="id"/>
                     </form:select><br>
 
-      Body part:    <form:select path="bodyPart"><br>
-                    <form:option value="0" label="-- wybierz --"/>
-                    <form:options items="${bodyPartList}" itemLabel="name" itemValue="id"/>
-                    </form:select><br>
-
-                    <input type="submit" value="Add"/>
-
+      Grupa mięśniowa: <form:select path="bodyPart"><br>
+                       <form:option value="0" label="-- wybierz --"/>
+                       <form:options items="${bodyPartList}" itemLabel="name" itemValue="id"/>
+                       </form:select><br>
+                       <input type="submit" value="Dodaj"/>
     </form:form>
-
-    <h3><spring:message code = "app.footer" /> </h3><BR>
   </body>
 </html>

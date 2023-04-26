@@ -4,25 +4,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>Excercise List</title>
+        <title>CategoryList</title>
         <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
         <h1><spring:message code = "app.title" /> </h1>
         <h4><spring:message code = "app.footer" /> </h4>
-        <h2>Ćwiczenia</h2>
-        <a href="/exercise/add">Dodaj</a><BR>
+        <h2>Kategorie ćwiczeń</h2>
+        <a href="/exerciseMode/add">Dodaj</a><BR>
         <table border="1">
             <tr>
-<%--                <td>Id</td>--%>
-                <td>Nazwa ćwiczenia</td>
-                <td>Opis</td>
+                <td>Nazwa trybu</td>
             </tr>
-            <c:forEach var="exercise" items="${exercises}" >
+            <c:forEach var="exerciseMode" items="${exerciseModes}" >
                 <tr>
-<%--                    <td>${exercise.id}</td>--%>
-                    <td>${exercise.name}</td>
-                    <td>${exercise.description}</td>
+                    <td>${exerciseMode.name}</td>
                 </tr>
             </c:forEach>
         </table>

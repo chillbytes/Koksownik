@@ -18,4 +18,6 @@ public class ExerciseModeDao {
     public List<ExerciseMode> all() {
         return entityManager.createQuery("select e from ExerciseMode e order by e.name").getResultList();
     }
+
+    public void saveMode(ExerciseMode exerciseMode  ) {entityManager.persist(exerciseMode);}
 }

@@ -9,25 +9,12 @@
     </head>
     <body>
 
-        <h1><spring:message code = "app.title" /> </h1><BR>
-
-<%--        <c:forEach items="${workoutTemplate}" var="workoutTemplate" varStatus="status">--%>
-<%-- --%>
-<%--            <c:if test="${status.index == 0}">--%>
-
-<%--                <H3>${workoutTemplate.name   }</H3>--%>
-<%--                <H4>${workoutTemplate.description}</H4>--%>
-<%--                <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Add exercise</a><BR>--%>
-
-<%--            </c:if>--%>
-<%--        </c:forEach>--%>
-
-
+        <h1><spring:message code = "app.title" /> </h1>
+        <h4><spring:message code = "app.footer" /> </h4>
 
         <h3>${workoutTemplate.name  }</h3>
         <h3>${workoutTemplate.description  }</h3>
-        <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Add exercise</a><BR><BR>
-
+        <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Dodaj</a><BR><BR>
 
         <table border = 1>
             <thead>
@@ -54,6 +41,6 @@
             </tbody>
         </table>
 
-        <h3><spring:message code = "app.footer" /> </h3><BR>
+
     </body>
 </html>

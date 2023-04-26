@@ -19,4 +19,17 @@ public class ExerciseModeService {
         //return exerciseModeRepository.a();
         return exerciseModeDao.all();
     }
+
+
+
+    public void save(ExerciseMode exerciseMode) {
+        exerciseModeDao.saveMode(exerciseMode);
+
+    }
+
+    public List<ExerciseMode> getAllExerciseModes() {
+        return exerciseModeDao.all();
+    }
+
+
 }

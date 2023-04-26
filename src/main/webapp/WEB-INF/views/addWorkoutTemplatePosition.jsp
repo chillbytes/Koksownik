@@ -19,11 +19,12 @@
 
     </head>
     <body>
-        <h1><spring:message code = "app.title" /> </h1><BR>
+        <h1><spring:message code = "app.title" /> </h1>
+        <h4><spring:message code = "app.footer" /> </h4>
 
         <form:form method="post" modelAttribute="workoutPosition">
 
-            Mode:
+            Tryb:
             <form:select path="exerciseMode"><br>
             <form:option value="0" label="-- wybierz --"/>
             <form:options items="${exerciseModesList}" itemLabel="name" itemValue="id"/><br>
@@ -32,21 +33,19 @@
             <!-- Add a hidden input field to capture the exerciseId value -->
             <form:hidden path="exerciseId" value="${workoutPosition.exercise}"/>
 
-            Exercise:
+            Ćwiczenie:
             <form:select path="exercise">
             <form:option value="0" label="-- wybierz --"/>
             <form:options items="${exerciseList}" itemLabel="name" itemValue="id"/>
             </form:select><br>
 
-            Repetitions:
+            Powtórzenia:
             <form:input path="repetitions" type="number"/><br>
 
-            Weight:
+            Ciężar:
             <form:input path="weight" type="number"/><br>
 
-            <input type="submit" value="Add"/>
-
-
+            <input type="submit" value="Dodaj"/>
 
         </form:form>
 
