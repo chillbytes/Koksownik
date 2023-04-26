@@ -32,4 +32,7 @@ public class ExerciseModeService {
     }
 
 
+//    public String getExerciseModeName(ExerciseMode exerciseMode) {
+//        return exerciseModeRepository.getExerciseModeNameByExerciseMode(exerciseMode);
+//    }
 }

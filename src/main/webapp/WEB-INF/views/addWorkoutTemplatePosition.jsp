@@ -19,8 +19,7 @@
 
     </head>
     <body>
-        <h1><spring:message code = "app.title" /> </h1>
-        <h4><spring:message code = "app.footer" /> </h4>
+          <spring:message code = "app.title"/>
 
         <form:form method="post" modelAttribute="workoutPosition">
 
@@ -49,6 +48,8 @@
 
         </form:form>
 
-        <h3><spring:message code = "app.footer" /> </h3><BR>
+        <spring:message code = "app.footer"/>
+
+
     </body>
 </html>

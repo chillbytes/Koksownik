@@ -9,14 +9,16 @@
         <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
-        <h1><spring:message code = "app.title" /> </h1>
-        <h4><spring:message code = "app.footer" /> </h4>
+
+
+        <spring:message code = "app.title"/>
+
         <h2>Grupy mięśniowe</h2>
         <a href="/bodyPart/add">Dodaj</a><BR>
-        <table border="1">
+        <table >
             <tr>
 <%--                <td>Id</td>--%>
-                <td>Nazwa części ciała</td>
+                <th>Nazwa części ciała</th>
 <%--                <td>ctrl</td>--%>
             </tr>
             <c:forEach var="bodyPart" items="${bodyParts}" >
@@ -29,5 +31,6 @@
             </c:forEach>
         </table>
 
+        <spring:message code = "app.footer"/>
     </body>
 </html>

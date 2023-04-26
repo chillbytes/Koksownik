@@ -8,8 +8,8 @@
     </head>
     <body>
 
-    <h1><spring:message code = "app.title" /> </h1>
-    <h4><spring:message code = "app.footer" /> </h4>
+
+    <spring:message code = "app.title"/>
 
     <H3>Nowy tryb</H3>
 
@@ -18,5 +18,6 @@
                    <input type="submit" value="Dodaj"/>
         </form:form>
 
+        <spring:message code = "app.footer"/>
     </body>
 </html>

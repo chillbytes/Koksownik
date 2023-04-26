@@ -9,17 +9,20 @@
     </head>
     <body>
 
-        <h1><spring:message code = "app.title" /> </h1>
-        <h4><spring:message code = "app.footer" /> </h4>
+
+        <spring:message code = "app.title"/>
+
+
         <h2>Szablony</h2>
 
         <a href="/workoutTemplate/add">Dodaj</a><BR>
-        <table border="1">
+        <table  >
             <tr>
     <%--            <td>Id</td>--%>
-                <td>Nazwa szablonu</td>
-                <td>Opis</td>
-                <td>Edycja</td>
+                <th>Nazwa szablonu</th>
+                <th>Opis</th>
+                <th>Edycja</th>
+                <th>Trening</th>
             </tr>
             <c:forEach var="workoutTemp" items="${workoutTemplates}" >
                 <tr>
@@ -27,8 +30,12 @@
                     <td>${workoutTemp.name}</td>
                     <td>${workoutTemp.description}</td>
                     <td><a href = "/workoutTemplate/edit/${workoutTemp.id}">Edytuj</a> </td>
+                    <td><a href = "/workoutSession/add/${workoutTemp.id}">Rozpocznij</a> </td>
                 </tr>
             </c:forEach>
         </table>
+
+        <spring:message code = "app.footer"/>
+
     </body>
 </html>

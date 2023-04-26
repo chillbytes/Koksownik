@@ -7,10 +7,9 @@
     <style><%@include file="/WEB-INF/style/style.css"%></style>
   </head>
   <body>
+    <spring:message code = "app.title"/>
 
-  <h1><spring:message code = "app.title" /> </h1>
-  <h4><spring:message code = "app.footer" /> </h4>
-  <H3>Nowa kategoria</H3>
+    <H3>Nowa kategoria</H3>
 
     <form:form method="post" modelAttribute="category">
       Nazwa:<form:input path="name"/><br>
@@ -18,5 +17,6 @@
       <input type="submit" value="Dodaj"/>
     </form:form>
 
+    <spring:message code = "app.footer"/>
   </body>
 </html>

@@ -181,3 +181,8 @@ drop view v_workouts
 
 
 select * from workoutpositions;
+
+
+select * from workout_sessions;
+
+select * from workout_session_positions;

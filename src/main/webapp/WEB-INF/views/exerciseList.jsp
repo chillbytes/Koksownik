@@ -8,15 +8,17 @@
         <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
-        <h1><spring:message code = "app.title" /> </h1>
-        <h4><spring:message code = "app.footer" /> </h4>
+
+        <spring:message code = "app.title"/>
+
+
         <h2>Ćwiczenia</h2>
         <a href="/exercise/add">Dodaj</a><BR>
-        <table border="1">
+        <table  >
             <tr>
 <%--                <td>Id</td>--%>
-                <td>Nazwa ćwiczenia</td>
-                <td>Opis</td>
+                <th>Nazwa ćwiczenia</th>
+                <th>Opis</td>
             </tr>
             <c:forEach var="exercise" items="${exercises}" >
                 <tr>
@@ -26,5 +28,7 @@
                 </tr>
             </c:forEach>
         </table>
+
+        <spring:message code = "app.footer"/>
     </body>
 </html>

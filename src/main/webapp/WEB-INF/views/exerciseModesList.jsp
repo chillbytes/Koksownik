@@ -8,13 +8,14 @@
         <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
-        <h1><spring:message code = "app.title" /> </h1>
-        <h4><spring:message code = "app.footer" /> </h4>
-        <h2>Kategorie ćwiczeń</h2>
+
+        <spring:message code = "app.title"/>
+
+        <h2>Tryby ćwiczeń</h2>
         <a href="/exerciseMode/add">Dodaj</a><BR>
-        <table border="1">
+        <table  >
             <tr>
-                <td>Nazwa trybu</td>
+                <th>Nazwa trybu</th>
             </tr>
             <c:forEach var="exerciseMode" items="${exerciseModes}" >
                 <tr>
@@ -22,5 +23,7 @@
                 </tr>
             </c:forEach>
         </table>
+
+        <spring:message code = "app.footer"/>
     </body>
 </html>

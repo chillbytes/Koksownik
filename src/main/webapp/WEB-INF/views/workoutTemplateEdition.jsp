@@ -9,14 +9,12 @@
     </head>
     <body>
 
-        <h1><spring:message code = "app.title" /> </h1>
-        <h4><spring:message code = "app.footer" /> </h4>
+        <spring:message code = "app.title"/>
 
-        <h3>${workoutTemplate.name  }</h3>
-        <h3>${workoutTemplate.description  }</h3>
+        <h3>${workoutTemplate.name  } - ${workoutTemplate.description  }</h3>
         <a href="/workoutTemplate/addPosition/${workoutTemplate.id}">Dodaj</a><BR><BR>
 
-        <table border = 1>
+        <table  >
             <thead>
             <tr>
 <%--                <th>Position Number</th>--%>
@@ -35,12 +33,12 @@
                     <td>${workoutPosition.weight}</td>
                     <td>${workoutPosition.exerciseMode.name}</td>
                     <td>${workoutPosition.exercise.name}</td>
-                    <td><a href = "/workoutTemplate/delete/${workoutPosition.workoutTemplate.id}/${workoutPosition.id}">Delete</a></td>
+                    <td><a href = "/workoutTemplate/delete/${workoutPosition.workoutTemplate.id}/${workoutPosition.id}">Usuń</a></td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
 
-
+        <spring:message code = "app.footer"/>
     </body>
 </html>

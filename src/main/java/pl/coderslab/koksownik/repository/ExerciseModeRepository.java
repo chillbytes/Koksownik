@@ -6,7 +6,7 @@ import pl.coderslab.koksownik.model.ExerciseMode;
 public interface ExerciseModeRepository extends JpaRepository<ExerciseMode, Long>{
 
     //
-
+    //String getExerciseModeNameByExerciseMode(ExerciseMode exerciseMode);
 }
 
 

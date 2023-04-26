@@ -7,13 +7,14 @@
         <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
-        <h1><spring:message code = "app.title" /> </h1>
-        <h4><spring:message code = "app.footer" /> </h4>
+        <spring:message code = "app.title"/>
+
         <H3>Nowa grupa mięśniowa</H3>
 
             <form:form method="post" modelAttribute="bodyPart">
                 Nazwa:<form:input path="name"/>
                 <input type="submit" value="Dodaj"/>
             </form:form>
+        <spring:message code = "app.footer"/>
     </body>
 </html>
