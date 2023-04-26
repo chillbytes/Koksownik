@@ -49,14 +49,19 @@ public class ExerciseService {
     }
 
     public String getNameById(Long id) {
-        return exerciseRepository.getExerciseNameById(id);
+
+        //return exerciseRepository.getExerciseNameById(id);
+        return exerciseRepository.findNameById(id);
+
     }
 
     public String getDescriptionById(Long id) {
         return exerciseRepository.getExerciseDescriptionById(id);
     }
 
-//    public String getCategoryNameByExerciseId(Long id) {
-//        return exerciseRepository.getCategoryNameByExerciseId(id);
-//    }
+
+
+    public String getCategoryNameByExerciseId(Long id) {
+        return exerciseRepository.getCategoryNameByExerciseId(id);
+    }
 }

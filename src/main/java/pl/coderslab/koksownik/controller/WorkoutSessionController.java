@@ -52,17 +52,27 @@ public class WorkoutSessionController {
         for (WorkoutPosition wp : workoutPositions) {
             WorkoutSessionPosition workoutSessionPosition = new WorkoutSessionPosition(workoutSession);
 
-            //workoutSessionPosition.setExerciseName(exerciseService.getNameById(wp.getExerciseId()));                    //pobierz nazwę ćwiczenia wg id ćwiczenia//
+//            System.out.println("Workout template position id:          " + wp.getId());
+//            System.out.println("Workout template position exercise id: " + wp.getExerciseId());
+//            System.out.println("Exercise name by id:                   " + exerciseService.getNameById(wp.getExerciseId()));
+//            System.out.println("Exercise description by id:            " + exerciseService.getDescriptionById(wp.getExerciseId()));
+//            System.out.println("Category name by id:                   " + exerciseService.getCategoryNameByExerciseId(wp.getExerciseId()));
+//            System.out.println("Exercise mode by line id:              " + exerciseService.getCategoryNameByExerciseId(wp.getExerciseId()));
 
-            //workoutSessionPosition.setExerciseDescription(exerciseService.getDescriptionById(wp.getExerciseId()));      //pobierz opis ćwiczenia wg id ćwiczenia//
 
-            //workoutSessionPosition.setCategory(exerciseService.getCategoryNameByExerciseId(wp.getExerciseId()));        //pobierz nazwę kategorii ćwiczenia wg id kategorii//
+
+            workoutSessionPosition.setExerciseName(exerciseService.getNameById(wp.getExerciseId()));                    //pobierz nazwę ćwiczenia wg id ćwiczenia//
+
+            workoutSessionPosition.setExerciseDescription(exerciseService.getDescriptionById(wp.getExerciseId()));      //pobierz opis ćwiczenia wg id ćwiczenia//
+
+            workoutSessionPosition.setCategory(exerciseService.getCategoryNameByExerciseId(wp.getExerciseId()));        //pobierz nazwę kategorii ćwiczenia wg id kategorii//
 
             workoutSessionPosition.setRepetitions(wp.getRepetitions());
 
             workoutSessionPosition.setWeight(wp.getWeight());
 
-            //workoutSessionPosition.setExerciseMode(exerciseModeService.getExerciseModeName( wp.getExerciseMode()));     //pobierz tryb ćwiczenia wg id tryb//
+            workoutSessionPosition.setExerciseMode( exerciseModeService.getExerciseModeName(wp.getExerciseMode()) );     //pobierz tryb ćwiczenia wg id tryb//
+
 
             workoutSessionPositions.add(workoutSessionPosition);
         }
@@ -71,6 +81,7 @@ public class WorkoutSessionController {
         for (WorkoutSessionPosition wsp : workoutSessionPositions) {
             workoutSessionPositionService.insert(wsp);
         }
+
         //model atribute
         model.addAttribute("workoutSessionPositions", workoutSessionPositions);
 

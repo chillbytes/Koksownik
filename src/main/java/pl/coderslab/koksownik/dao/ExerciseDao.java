@@ -23,4 +23,5 @@ public class ExerciseDao {
         return entityManager.find(Exercise.class, id);
     }
 
+
 }

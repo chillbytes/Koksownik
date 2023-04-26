@@ -30,9 +30,16 @@ public interface ExerciseRepository extends JpaRepository<Category, Long> {
     List<Exercise> getAllExercises();
 
 
-    String getExerciseNameById(Long id);
-    String getExerciseDescriptionById(Long id);
+    @Query("SELECT e.name FROM Exercise e WHERE e.id = :id")
+    String findNameById(@Param("id") Long id);
 
-//    String getCategoryNameByExerciseId(Long id);
+    @Query("SELECT e.description FROM Exercise e WHERE e.id = :id")
+    String getExerciseDescriptionById(@Param("id") Long id);
+
+    @Query("SELECT e.category.name FROM Exercise e WHERE e.id = :exerciseId")
+    String getCategoryNameByExerciseId(@Param("exerciseId") Long exerciseId);
+
+
+
 
 }
