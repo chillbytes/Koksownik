@@ -7,7 +7,8 @@
         <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
-        <spring:message code = "app.title"/>
+
+        <%@ include file="/WEB-INF/views/head.jsp" %>
 
         <H3>Nowa grupa mięśniowa</H3>
 

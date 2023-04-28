@@ -38,12 +38,6 @@ public class WorkoutSessionController {
         WorkoutSession workoutSession = new WorkoutSession(workoutTemplate.getName(), LocalDateTime.now());
         workoutSessionService.save(workoutSession);
 
-
-
-        System.out.println("Workout session ID:   " + workoutSession.getId());
-        System.out.println("Workout session Name: " + workoutSession.getName());
-        System.out.println("Workout session dt:   " + workoutSession.getBeginingDateTime());
-
         //model atribute
         model.addAttribute("workoutSession", workoutSession);
 
@@ -51,15 +45,6 @@ public class WorkoutSessionController {
 
         for (WorkoutPosition wp : workoutPositions) {
             WorkoutSessionPosition workoutSessionPosition = new WorkoutSessionPosition(workoutSession);
-
-//            System.out.println("Workout template position id:          " + wp.getId());
-//            System.out.println("Workout template position exercise id: " + wp.getExerciseId());
-//            System.out.println("Exercise name by id:                   " + exerciseService.getNameById(wp.getExerciseId()));
-//            System.out.println("Exercise description by id:            " + exerciseService.getDescriptionById(wp.getExerciseId()));
-//            System.out.println("Category name by id:                   " + exerciseService.getCategoryNameByExerciseId(wp.getExerciseId()));
-//            System.out.println("Exercise mode by line id:              " + exerciseService.getCategoryNameByExerciseId(wp.getExerciseId()));
-
-
 
             workoutSessionPosition.setExerciseName(exerciseService.getNameById(wp.getExerciseId()));                    //pobierz nazwę ćwiczenia wg id ćwiczenia//
 
