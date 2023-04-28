@@ -63,7 +63,7 @@
         </form>
         </table>
 
-        <%--        <table>--%>
+<%--                <table>--%>
 <%--            <thead>--%>
 <%--                <tr>--%>
 <%--                    <th>Nazwa ćwiczenia</th>--%>
