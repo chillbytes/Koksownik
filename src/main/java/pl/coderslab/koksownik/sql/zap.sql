@@ -186,5 +186,12 @@ select * from workoutpositions;
 select * from workout_sessions;
 
 select * from workout_session_positions;
+#
+# delete from workout_sessions;
+#
+# delete  from workout_session_positions
 
 
+select * from exercise_modes where id > 4
+
+delete from exercise_modes where id > 4
