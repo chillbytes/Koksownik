@@ -186,3 +186,5 @@ select * from workoutpositions;
 select * from workout_sessions;
 
 select * from workout_session_positions;
+
+

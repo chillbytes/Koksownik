@@ -17,4 +17,12 @@ public class WorkoutSessionPositionDao {
     public void save(WorkoutSessionPosition workoutSessionPosition) {
         entityManager.persist(workoutSessionPosition);
     }
+
+    public WorkoutSessionPosition findById(Long id) {
+
+        return entityManager.find(WorkoutSessionPosition.class, id);
+
+    }
+
+
 }

@@ -19,7 +19,7 @@
 
     </head>
     <body>
-          <spring:message code = "app.title"/>
+        <spring:message code = "app.title"/>
 
         <form:form method="post" modelAttribute="workoutPosition">
 

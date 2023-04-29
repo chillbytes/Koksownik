@@ -4,11 +4,11 @@ package pl.coderslab.koksownik.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.koksownik.model.*;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.koksownik.model.WorkoutPosition;
+import pl.coderslab.koksownik.model.WorkoutSession;
+import pl.coderslab.koksownik.model.WorkoutSessionPosition;
+import pl.coderslab.koksownik.model.WorkoutTemplate;
 import pl.coderslab.koksownik.service.*;
 
 import java.time.LocalDateTime;
@@ -27,12 +27,53 @@ public class WorkoutSessionController {
     private final ExerciseService exerciseService;
     private final ExerciseModeService exerciseModeService;
 
+//    private final List<WorkoutSessionPosition> workoutSessionPositions;
+
+//    public WorkoutSessionController(List<WorkoutSessionPosition> workoutSessionPositions) {
+//        this.workoutSessionPositions = workoutSessionPositions;
+//    }
+
+//
+//    private final WorkoutSessionPositionService workoutSessionPositionService;
+//    private final WorkoutSessionService workoutSessionService;
+//    private final WorkoutTemplateService workoutTemplateService;
+//    private final WorkoutPositionService workoutPositionService;
+//    private final ExerciseService exerciseService;
+//    private final ExerciseModeService exerciseModeService;
+//    private final List<WorkoutSessionPosition> workoutSessionPositions;
+//
+//    @Autowired
+//    public WorkoutSessionController(
+//            WorkoutSessionPositionService workoutSessionPositionService,
+//            WorkoutSessionService workoutSessionService,
+//            WorkoutTemplateService workoutTemplateService,
+//            WorkoutPositionService workoutPositionService,
+//            ExerciseService exerciseService,
+//            ExerciseModeService exerciseModeService,
+//            List<WorkoutSessionPosition> workoutSessionPositions) {
+//
+//        this.workoutSessionPositionService = workoutSessionPositionService;
+//        this.workoutSessionService = workoutSessionService;
+//        this.workoutTemplateService = workoutTemplateService;
+//        this.workoutPositionService = workoutPositionService;
+//        this.exerciseService = exerciseService;
+//        this.exerciseModeService = exerciseModeService;
+//        this.workoutSessionPositions = workoutSessionPositions;
+//    }
+
 
     @GetMapping("/add/{workoutTemplateId}")
     public String edit (Model model, @PathVariable Long workoutTemplateId) {
 
+        System.out.println("workoutTemplateId: " + workoutTemplateId);
+
+
         WorkoutTemplate workoutTemplate = workoutTemplateService.findById(workoutTemplateId);
         List<WorkoutPosition> workoutPositions = workoutPositionService.getWorkoutTemplatePositionsByWorkoutTemplateId(workoutTemplateId);
+
+
+        //System.out.println("workoutTemplate: " + workoutTemplate.getName());
+
 
         WorkoutSession workoutSession = new WorkoutSession(workoutTemplate.getName(), LocalDateTime.now());
         workoutSessionService.save(workoutSession);
@@ -58,22 +99,61 @@ public class WorkoutSessionController {
         }
 
         model.addAttribute("workoutSessionPositions", workoutSessionPositions);
+
+
+
+
         return "/workoutSessionEdition";
     }
 
-    @PostMapping("/add/{workoutTemplateId}")
-        public String editAndSave(Model model, WorkoutSession workoutSession, List<WorkoutSessionPosition> workoutSessionPositions, @PathVariable Long workoutTemplateId){
 
-        workoutSessionService.save(workoutSession);
+    @PostMapping("/edit/{id}")
+    //public String editAndSave(@RequestParam Long workoutSessionId, @RequestParam Integer repetitions, @RequestParam Integer weight, @RequestParam Boolean completed, @PathVariable Long id) {
+    public String editAndSave(@RequestParam Long workoutSessionId, @PathVariable Long id , Model model) {
 
-        System.out.println("workoutSessionPositions " + workoutSessionPositions );
+        //List<WorkoutSessionPosition> workoutSessionPositions = workoutSessionPositionService.findByWorkoutSessionId(workoutSessionId);
+//        List<WorkoutSessionPosition> workoutSessionPositions = workoutSessionPositionService.findByWorkoutSessionId(id);
+//
+//        for (WorkoutSessionPosition wsp : workoutSessionPositions) {
+//
+//            //wsp.setRepetitions(repetitions);
+//            //wsp.setWeight(Float.valueOf(weight));
+//            //wsp.setCompleted(completed);
+//            workoutSessionPositionService.save(wsp);
+//        }
 
-        for (WorkoutSessionPosition wsp : workoutSessionPositions) {
-            workoutSessionPositionService.insert(wsp);
-        }
+        //return "redirect:/workoutSession/add/" + workoutSessionId;
 
-        return "/workoutTemplateList"; //tylko tymczasowo - docelowo przegląd zrealizowanych sesji treningowych//
+        List<WorkoutSession> workoutSessions = workoutSessionService.getAllSessions();
+        model.addAttribute("workoutSessions", workoutSessions);
 
+        return "allWorkoutSessionList";
 
     }
+
+
+    @GetMapping("all")
+    public String showAllSessions(Model model) {
+        List<WorkoutSession> workoutSessions = workoutSessionService.getAllSessions();
+
+        model.addAttribute("workoutSessions", workoutSessions);
+
+        return "allWorkoutSessionList";
+    }
+
+
+    @GetMapping("position/{workoutSessionId}")
+    public String showWorkoutSessionById(Model model, @PathVariable Long workoutSessionId) {
+
+        WorkoutSession workoutSession = workoutSessionService.getWorkoutSession(workoutSessionId);
+        List<WorkoutSessionPosition> workoutSessionPositions = workoutSessionPositionService.findByWorkoutSessionId(workoutSessionId);
+
+        System.out.println("workoutSessionPositions (size): " + workoutSessionPositions.size());
+
+        model.addAttribute("workoutSession", workoutSession) ;
+        model.addAttribute("workoutSessionPositions", workoutSessionPositions );
+
+        return "workoutSessionPositionsList";
+    }
+
 }

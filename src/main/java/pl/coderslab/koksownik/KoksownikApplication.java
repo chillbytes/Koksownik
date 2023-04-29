@@ -4,7 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.coderslab.koksownik.converter.ExerciseConverter;
+import pl.coderslab.koksownik.model.WorkoutSessionPosition;
 import pl.coderslab.koksownik.repository.ExerciseRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class KoksownikApplication {
@@ -25,5 +29,10 @@ public class KoksownikApplication {
         return new ExerciseConverter(    );
 
     }
+    @Bean
+    public List<WorkoutSessionPosition> workoutSessionPositions() {
+        return new ArrayList<>();
+    }
+
 
 }

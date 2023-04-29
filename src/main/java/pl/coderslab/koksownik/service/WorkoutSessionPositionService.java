@@ -7,6 +7,8 @@ import pl.coderslab.koksownik.model.WorkoutSessionPosition;
 import pl.coderslab.koksownik.repository.WorkoutSessionPositionRepository;
 import pl.coderslab.koksownik.repository.WorkoutSessionRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class WorkoutSessionPositionService {
@@ -20,4 +22,17 @@ public class WorkoutSessionPositionService {
 
     }
 
+    public WorkoutSessionPosition findById(Long id){
+        return workoutSessionPositionDao.findById(id);
+    }
+
+    public void save(WorkoutSessionPosition workoutSessionPosition) {
+        workoutSessionPositionDao.save(workoutSessionPosition);
+    }
+
+
+    public List<WorkoutSessionPosition> findByWorkoutSessionId(Long id) {
+
+        return workoutSessionPositionRepository.readWorkoutSessionPositionByWorkoutSessionId(id);
+    }
 }

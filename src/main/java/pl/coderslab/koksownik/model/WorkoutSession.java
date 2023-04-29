@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,12 +21,22 @@ public class WorkoutSession {
 
     private LocalDateTime beginingDateTime;
 
-    @OneToMany(mappedBy="id")
-    private List<WorkoutSessionPosition> positions;
+    private boolean completed;
 
+    @OneToMany(mappedBy="id")
+    //@OneToMany(mappedBy = "workout_session_id")
+    //private List<WorkoutSessionPosition> positions;
+    private List<WorkoutSessionPosition> positions = new ArrayList<>();
 
     public WorkoutSession(String name, LocalDateTime beginingDateTime) {
         this.name = name;
         this.beginingDateTime = beginingDateTime;
+    }
+    public WorkoutSession(String name ) {
+        this.name = name;
+    }
+
+    public WorkoutSession() {
+
     }
 }
