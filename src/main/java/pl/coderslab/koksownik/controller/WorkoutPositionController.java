@@ -46,6 +46,19 @@ public class WorkoutPositionController {
         return "/workoutTemplateEdition";
     }
 
+
+    @PostMapping("/edit/{id}")
+    public String editAndSave(Model model, @PathVariable Long id) {
+
+        model.addAttribute("workoutTemplate", workoutTemplateService.findById(id));
+
+
+        model.addAttribute("workoutLines", workoutPositionService.getWorkoutTemplatePositionsByWorkoutTemplateId(id));
+        return "/workoutTemplateEdition";
+    }
+
+
+
     @GetMapping("/delete/{workoutTemplateId}/{positionId}")
     public String deletePosition(Model model, @PathVariable Long workoutTemplateId, @PathVariable Long positionId) {
         WorkoutPosition workoutPosition = workoutPositionService.getWorkoutPositionById(positionId);
@@ -80,6 +93,8 @@ public class WorkoutPositionController {
         workoutPosition.setWorkoutTemplate(workoutTemplate);
 
         workoutPositionService.save(workoutPosition);
+
+        model.addAttribute("workoutTemplate", workoutTemplateService.findById(workoutTemplateId));
 
         model.addAttribute("workoutLines", workoutPositionService.getWorkoutTemplatePositionsByWorkoutTemplateId(workoutTemplateId));
         return "/workoutTemplateEdition";

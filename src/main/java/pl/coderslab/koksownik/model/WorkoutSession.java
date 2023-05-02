@@ -21,6 +21,13 @@ public class WorkoutSession {
 
     private LocalDateTime beginingDateTime;
 
+    private String sessionDate;
+
+    private String sessionTime;
+
+
+
+
     private boolean completed;
 
     @OneToMany(mappedBy="id")

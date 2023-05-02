@@ -10,20 +10,20 @@ use koksownik;
 
 
 
-select * from exercises
+select * from exercises;
 
 # delete from exercises where 1 = 1
 
-select * from bodyparts
-delete from bodyparts where id > 5
+select * from bodyparts;
+delete from bodyparts where id > 5;
 
-select * from categories order by id
+select * from categories order by id;
 
-delete from categories where id= 2
+delete from categories where id= 2;
 
-select * from workouts
+select * from workouts;
 
-select * from workouts_excercises
+select * from workouts_excercises;
 
 
 
@@ -31,7 +31,7 @@ SELECT e.*
 FROM workouts w
 INNER JOIN workouts_excercises we ON w.id = we.workout_id
 INNER JOIN exercises e ON we.excercise_id = e.id
-WHERE w.id = 13
+WHERE w.id = 13;
 
 #
 #
@@ -42,11 +42,11 @@ WHERE w.id = 13
 # # insert into  workouts_excercises(workout_id, excercise_id) values( 13, 2)
 
 
-SELECT e.* FROM workouts w INNER JOIN workouts_excercises we ON w.id = we.workout_id INNER JOIN exercises e ON we.excercise_id = e.id WHERE w.id =2
+SELECT e.* FROM workouts w INNER JOIN workouts_excercises we ON w.id = we.workout_id INNER JOIN exercises e ON we.excercise_id = e.id WHERE w.id =2;
 
 
 
-select * from bodyparts b order by id
+select * from bodyparts b order by id;
 
 
 
@@ -112,15 +112,15 @@ order by w2.position_number;
 
 
 
-select * from exercises where category_id = 2
+select * from exercises where category_id = 2;
 
     update
         exercises
     set category_id = 1
-    where category_id = 2
+    where category_id = 2;
 
 select * from categories
-delete from categories where id = 2
+delete from categories where id = 2;
 
 
 
@@ -177,7 +177,7 @@ where 1 = 1;
 
 select * from  v_workouts where id = 1 order by position_number;
 
-drop view v_workouts
+drop view v_workouts;
 
 
 select * from workoutpositions;
@@ -186,12 +186,93 @@ select * from workoutpositions;
 select * from workout_sessions;
 
 select * from workout_session_positions;
-#
-# delete from workout_sessions;
-#
-# delete  from workout_session_positions
+
+delete from workout_sessions;
+
+delete  from workout_session_positions;
 
 
-select * from exercise_modes where id > 4
+select * from exercise_modes where id > 4;
 
-delete from exercise_modes where id > 4
+delete from exercise_modes where id > 4;
+
+
+select *
+ from workouts;
+
+update workouts
+set name = 'Workout 004',
+    description = 'Trening numer 4'
+where id = 4;
+
+
+
+
+
+select * from exercises;
+
+# delete from exercises where 1 = 1
+
+select * from bodyparts
+delete from bodyparts where id > 5;
+
+select * from categories order by id;
+
+delete from categories where id= 2;
+
+select * from workouts;
+
+select * from workouts_excercises;
+
+
+
+SELECT e.*
+FROM workouts w
+         INNER JOIN workouts_excercises we ON w.id = we.workout_id
+         INNER JOIN exercises e ON we.excercise_id = e.id
+WHERE w.id = 13;
+
+
+
+
+select * from bodyparts;
+
+update bodyparts  set name = 'Klatka piersiowa' where id = 1;
+
+update bodyparts  set name = 'Plecy' where id = 2;
+
+update bodyparts  set name = 'Nogi' where id = 3;
+
+update bodyparts  set name = 'Ramiona' where id = 4;
+
+update bodyparts  set name = 'Barki' where id = 5;
+
+delete from bodyparts where id = 6;
+
+delete from bodyparts where id = 7;
+
+
+select * from categories;
+
+update categories set name = 'Sztanga' where id = 1;
+
+update categories set name = 'Hantle' where id = 3;
+
+update categories set name = 'Maszyna' where id = 4;
+
+update categories set name = 'Ciężar ciała' where id = 5;
+
+update categories set name = 'Gumy' where id = 6;
+
+
+select * from exercise_modes;
+
+update exercise_modes set name = 'Trening', description = 'Seria treningowa' where id = 1;
+
+update exercise_modes set name = 'Rozgrzewka', description = 'Seria rozgrzewkowa' where id = 2;
+
+update exercise_modes set name = 'Upadek', description = 'Trening do upadku mięśniowego' where id = 3;
+
+update exercise_modes set name = 'Dropset', description = 'Trening ze zmniejszeniem obciążenia' where id = 4;
+
+delete from exercise_modes where  id > 4;

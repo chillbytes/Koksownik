@@ -12,6 +12,7 @@ import pl.coderslab.koksownik.model.WorkoutTemplate;
 import pl.coderslab.koksownik.service.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,55 +28,56 @@ public class WorkoutSessionController {
     private final ExerciseService exerciseService;
     private final ExerciseModeService exerciseModeService;
 
-//    private final List<WorkoutSessionPosition> workoutSessionPositions;
+    //    private final List<WorkoutSessionPosition> workoutSessionPositions;
 
-//    public WorkoutSessionController(List<WorkoutSessionPosition> workoutSessionPositions) {
-//        this.workoutSessionPositions = workoutSessionPositions;
-//    }
+    //    public WorkoutSessionController(List<WorkoutSessionPosition> workoutSessionPositions) {
+    //        this.workoutSessionPositions = workoutSessionPositions;
+    //    }
 
-//
-//    private final WorkoutSessionPositionService workoutSessionPositionService;
-//    private final WorkoutSessionService workoutSessionService;
-//    private final WorkoutTemplateService workoutTemplateService;
-//    private final WorkoutPositionService workoutPositionService;
-//    private final ExerciseService exerciseService;
-//    private final ExerciseModeService exerciseModeService;
-//    private final List<WorkoutSessionPosition> workoutSessionPositions;
-//
-//    @Autowired
-//    public WorkoutSessionController(
-//            WorkoutSessionPositionService workoutSessionPositionService,
-//            WorkoutSessionService workoutSessionService,
-//            WorkoutTemplateService workoutTemplateService,
-//            WorkoutPositionService workoutPositionService,
-//            ExerciseService exerciseService,
-//            ExerciseModeService exerciseModeService,
-//            List<WorkoutSessionPosition> workoutSessionPositions) {
-//
-//        this.workoutSessionPositionService = workoutSessionPositionService;
-//        this.workoutSessionService = workoutSessionService;
-//        this.workoutTemplateService = workoutTemplateService;
-//        this.workoutPositionService = workoutPositionService;
-//        this.exerciseService = exerciseService;
-//        this.exerciseModeService = exerciseModeService;
-//        this.workoutSessionPositions = workoutSessionPositions;
-//    }
+    //
+    //    private final WorkoutSessionPositionService workoutSessionPositionService;
+    //    private final WorkoutSessionService workoutSessionService;
+    //    private final WorkoutTemplateService workoutTemplateService;
+    //    private final WorkoutPositionService workoutPositionService;
+    //    private final ExerciseService exerciseService;
+    //    private final ExerciseModeService exerciseModeService;
+    //    private final List<WorkoutSessionPosition> workoutSessionPositions;
+    //
+    //    @Autowired
+    //    public WorkoutSessionController(
+    //            WorkoutSessionPositionService workoutSessionPositionService,
+    //            WorkoutSessionService workoutSessionService,
+    //            WorkoutTemplateService workoutTemplateService,
+    //            WorkoutPositionService workoutPositionService,
+    //            ExerciseService exerciseService,
+    //            ExerciseModeService exerciseModeService,
+    //            List<WorkoutSessionPosition> workoutSessionPositions) {
+    //
+    //        this.workoutSessionPositionService = workoutSessionPositionService;
+    //        this.workoutSessionService = workoutSessionService;
+    //        this.workoutTemplateService = workoutTemplateService;
+    //        this.workoutPositionService = workoutPositionService;
+    //        this.exerciseService = exerciseService;
+    //        this.exerciseModeService = exerciseModeService;
+    //        this.workoutSessionPositions = workoutSessionPositions;
+    //    }
 
 
     @GetMapping("/add/{workoutTemplateId}")
     public String edit (Model model, @PathVariable Long workoutTemplateId) {
 
-        System.out.println("workoutTemplateId: " + workoutTemplateId);
-
-
         WorkoutTemplate workoutTemplate = workoutTemplateService.findById(workoutTemplateId);
         List<WorkoutPosition> workoutPositions = workoutPositionService.getWorkoutTemplatePositionsByWorkoutTemplateId(workoutTemplateId);
 
+        LocalDateTime localDateTime =  LocalDateTime.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("HH:mm");
 
-        //System.out.println("workoutTemplate: " + workoutTemplate.getName());
+        WorkoutSession workoutSession = new WorkoutSession(workoutTemplate.getName(), localDateTime);
 
+        workoutSession.setSessionDate(dtf.format(localDateTime));
+        workoutSession.setSessionTime(dtf2.format(localDateTime));
 
-        WorkoutSession workoutSession = new WorkoutSession(workoutTemplate.getName(), LocalDateTime.now());
         workoutSessionService.save(workoutSession);
 
         model.addAttribute("workoutSession", workoutSession);
@@ -99,9 +101,6 @@ public class WorkoutSessionController {
         }
 
         model.addAttribute("workoutSessionPositions", workoutSessionPositions);
-
-
-
 
         return "/workoutSessionEdition";
     }

@@ -2,8 +2,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
       <title>Workout session positions</title>
@@ -17,7 +15,7 @@
     <spring:message code = "app.title"/>
 
 
-    <h2>Sesja: ${workoutSession.name}</h2>
+    <h2>Sesja: ${workoutSession.name} - ${workoutSession.sessionDate} ${workoutSession.sessionTime}</h2>
 
 
     <table  >
