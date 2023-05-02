@@ -19,15 +19,12 @@ public class WorkoutSessionService {
     public void save(WorkoutSession workoutSession) {
         workoutSessionDao.save(workoutSession);
     }
-
     public List<WorkoutSession> getAllSessions() {
         return workoutSessionRepository.getWorkoutSessionsBy();
     }
 
     public WorkoutSession getWorkoutSession(Long id ) {
-
         return workoutSessionDao.findById(id);
-
     }
 
 }

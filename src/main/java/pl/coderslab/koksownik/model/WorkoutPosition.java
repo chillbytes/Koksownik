@@ -13,15 +13,13 @@ public class WorkoutPosition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //private Long positionNumber;        //pozycja na liście szablonu treningu
 
-    private Integer repetitions;        //ilość powtórzeń
+    private Integer repetitions;
 
-    private Float weight;                //waga
+    private Float weight;
 
     @ManyToOne
-    private ExerciseMode exerciseMode;   //tryb (rozgrzewka, seria robocza, dropset, ćwiczenie do upadku mięśniowego)
-
+    private ExerciseMode exerciseMode;
     @ManyToOne
     private Exercise exercise;
 
@@ -48,14 +46,6 @@ public class WorkoutPosition {
         return exercise != null ? exercise.getId() : null;
     }
 
-
-//    public Long getPositionNumber() {
-//        return positionNumber;
-//    }
-//
-//    public void setPositionNumber(Long positionNumber) {
-//        this.positionNumber = positionNumber;
-//    }
 
     public Integer getRepetitions() {
         return repetitions;

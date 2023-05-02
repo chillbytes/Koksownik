@@ -28,8 +28,6 @@ public class WorkoutTemplateDao {
         return entityManager.find(WorkoutTemplate.class, id);
     }
 
-
-
     public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
         Query query = entityManager.createQuery("SELECT DISTINCT wt FROM WorkoutTemplate wt   JOIN FETCH wt.workoutPositions wp   JOIN FETCH wp.exercise e   JOIN FETCH wp.exerciseMode em WHERE wt.id=:id");
         query.setParameter("id", id);

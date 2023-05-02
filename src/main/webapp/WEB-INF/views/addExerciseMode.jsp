@@ -8,7 +8,6 @@
     </head>
     <body>
 
-
     <spring:message code = "app.title"/>
 
     <H3>Nowy tryb</H3>

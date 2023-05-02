@@ -19,9 +19,7 @@ public class WorkoutPositionService {
     }
 
     public List<WorkoutPosition> getWorkoutTemplatePositionsByWorkoutTemplateId(Long id) {
-
         return workoutPositionRepository.readWorkoutPositionsByWorkoutTemplateId(id);
-
     }
 
     public void deleteWorkoutPosition(Long workoutTemplateId, Long workoutPositionId) {

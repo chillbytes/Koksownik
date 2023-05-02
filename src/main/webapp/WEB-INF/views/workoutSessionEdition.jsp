@@ -55,14 +55,6 @@
 <%--                                        Zrobione--%>
 <%--                                    </label>--%>
                                 </td>
-
-
-
-
-
-
-
-
                             </tr>
                         </c:forEach>
                     </tbody>

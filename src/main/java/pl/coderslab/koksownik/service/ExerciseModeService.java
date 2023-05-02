@@ -16,24 +16,17 @@ public class ExerciseModeService {
     private final ExerciseModeDao exerciseModeDao;
 
     public List<ExerciseMode> getExerciseModesList() {
-        //return exerciseModeRepository.a();
-        return exerciseModeDao.all();
-    }
-
-
+        return exerciseModeDao.all();    }
 
     public void save(ExerciseMode exerciseMode) {
         exerciseModeDao.saveMode(exerciseMode);
-
     }
 
     public List<ExerciseMode> getAllExerciseModes() {
         return exerciseModeDao.all();
     }
 
-
     public String getExerciseModeName(ExerciseMode exerciseMode) {
-
         return exerciseModeRepository.getExerciseModeNameById(exerciseMode.getId());
     }
 }

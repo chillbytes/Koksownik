@@ -17,7 +17,6 @@
 
     <h2>Sesja: ${workoutSession.name} - ${workoutSession.sessionDate} ${workoutSession.sessionTime}</h2>
 
-
     <table  >
         <tr>
 
@@ -42,8 +41,6 @@
         </tr>
       </c:forEach>
     </table>
-
-
 
     <spring:message code = "app.footer"/>
 

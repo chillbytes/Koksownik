@@ -22,10 +22,3 @@ public class Category {
     @Range(min= 0, max=2)
     private int multiplier;
 }
-//dumbbell
-//bodyweight
-//asisted bodyweight
-//barbell
-//kettlebal
-//machine
-//

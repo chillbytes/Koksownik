@@ -25,9 +25,7 @@ public class KoksownikApplication {
 
     @Bean
     public ExerciseConverter getExerciseConverter() {
-
         return new ExerciseConverter(    );
-
     }
     @Bean
     public List<WorkoutSessionPosition> workoutSessionPositions() {

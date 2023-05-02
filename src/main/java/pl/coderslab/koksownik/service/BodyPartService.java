@@ -17,17 +17,12 @@ public class BodyPartService {
 
 
     public void save(BodyPart bodyPart) {
-
-
         bodyPartDao.save(bodyPart);
-
-
     }
 
     public List<BodyPart> all() {
         return bodyPartDao.all();
     }
-
 
     public List<BodyPart> allBodyParts() {
 

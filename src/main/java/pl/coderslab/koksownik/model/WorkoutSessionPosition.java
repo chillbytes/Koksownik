@@ -35,7 +35,6 @@ public class WorkoutSessionPosition {
         this.workoutSession = workoutSession;
     }
 
-
     public WorkoutSessionPosition() {
 
     }

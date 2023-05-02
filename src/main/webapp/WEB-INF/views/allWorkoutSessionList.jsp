@@ -9,12 +9,7 @@
     </head>
     <body>
 
-
-
     <spring:message code = "app.title"/>
-
-
-
     <%--    model.addAttribute("workoutSession", workoutSession ;--%>
     <%--    model.addAttribute("workoutSessionPositions", workoutSessionPositions );--%>
 

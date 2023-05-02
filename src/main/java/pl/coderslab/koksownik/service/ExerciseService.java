@@ -16,32 +16,21 @@ public class ExerciseService {
 
     public void save(Exercise exercise) {
         exerciseDao.save(exercise);
-
     }
     public List<Exercise> all() {
-
         return exerciseDao.all();
-
     }
 
-
     public List<Exercise> findByWorkoutTemplateId(Long id) {
-
         return exerciseRepository.findExcercisesOfWorkoutTemplate(id);
-
     }
 
     public List<Exercise> getAllExercises () {
-
         return exerciseDao.all();
-
     }
 
     public Exercise getExerciseById(Long id){
-
-        //return exerciseRepository.getExerciseById(id);
         return exerciseDao.getExerciseById(id);
-
     }
 
     public Exercise findById(Long id){
@@ -49,17 +38,12 @@ public class ExerciseService {
     }
 
     public String getNameById(Long id) {
-
-        //return exerciseRepository.getExerciseNameById(id);
         return exerciseRepository.findNameById(id);
-
     }
 
     public String getDescriptionById(Long id) {
         return exerciseRepository.getExerciseDescriptionById(id);
     }
-
-
 
     public String getCategoryNameByExerciseId(Long id) {
         return exerciseRepository.getCategoryNameByExerciseId(id);

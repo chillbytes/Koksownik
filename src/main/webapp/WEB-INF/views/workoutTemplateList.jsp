@@ -8,10 +8,8 @@
         <style><%@include file="/WEB-INF/style/style.css"%></style>
     </head>
     <body>
-
-
+    
         <spring:message code = "app.title"/>
-
 
         <h2>Szablony</h2>
 

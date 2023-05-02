@@ -17,11 +17,8 @@ public class WorkoutSessionPositionService {
     private final WorkoutSessionPositionDao workoutSessionPositionDao;
 
     public void insert(WorkoutSessionPosition workoutSessionPosition) {
-        //workoutSessionPositionRepository.insert(workoutSessionPosition);
         workoutSessionPositionDao.save(workoutSessionPosition);
-
     }
-
     public WorkoutSessionPosition findById(Long id){
         return workoutSessionPositionDao.findById(id);
     }
@@ -30,9 +27,7 @@ public class WorkoutSessionPositionService {
         workoutSessionPositionDao.save(workoutSessionPosition);
     }
 
-
     public List<WorkoutSessionPosition> findByWorkoutSessionId(Long id) {
-
         return workoutSessionPositionRepository.readWorkoutSessionPositionByWorkoutSessionId(id);
     }
 }

@@ -18,14 +18,9 @@ public class CategoryService {
         categoryDao.save(category);
     }
     public List<Category> all() {
-
         return categoryDao.all();
-
     }
-
     public List<Category> getAllCategories(){
-
         return categoryRepository.findAllCategories();
-
     }
 }

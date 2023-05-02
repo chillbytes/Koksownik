@@ -15,36 +15,22 @@ public class WorkoutTemplateService {
     private final WorkoutTemplateRepository workoutTemplateRepository;
 
     public Long save(WorkoutTemplate workoutTemplate) {
-
         return workoutTemplateDao.save(workoutTemplate);
-
     }
     public List<WorkoutTemplate> all() {
-
         return workoutTemplateDao.all();
-
     }
 
     public WorkoutTemplate findById(Long id ) {
-
-
         return workoutTemplateDao.findById(id);
-
     }
 
     public List<WorkoutTemplate> getWorkoutTemplateById(Long id) {
-
         return workoutTemplateDao.getWorkoutTemplateById(id);
-
     }
 
-
-
-
     public List<WorkoutTemplate> getWorkoutTemplateById2(Long id) {
-
         return workoutTemplateRepository.getWorkoutTemplateById(id);
-
     }
 
 }

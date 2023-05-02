@@ -18,8 +18,3 @@ public class BodyPart {
     @NotBlank
     private String name;
 }
-//legs
-//chest
-//back
-//shoulders
-//arms
