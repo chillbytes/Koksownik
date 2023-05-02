@@ -26,7 +26,7 @@ CREATE TABLE `bodyparts` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `bodyparts` (
 
 LOCK TABLES `bodyparts` WRITE;
 /*!40000 ALTER TABLE `bodyparts` DISABLE KEYS */;
-INSERT INTO `bodyparts` VALUES (1,'Chest'),(2,'Back'),(3,'Legs'),(4,'Arms'),(5,'Shoulders'),(6,'Neck');
+INSERT INTO `bodyparts` VALUES (1,'Klatka piersiowa'),(2,'Plecy'),(3,'Nogi'),(4,'Ramiona'),(5,'Barki');
 /*!40000 ALTER TABLE `bodyparts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ CREATE TABLE `categories` (
   `multiplier` int NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,1,'Barbel'),(3,2,'Dumbell'),(4,1,'Machine'),(5,1,'Bodyweight'),(6,1,'Rubber');
+INSERT INTO `categories` VALUES (1,1,'Sztanga'),(3,2,'Hantle'),(4,1,'Maszyna'),(5,1,'Ciężar ciała'),(6,1,'Gumy'),(7,1,'Ciężar ciała z asystą');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,7 +76,7 @@ CREATE TABLE `exercise_modes` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `exercise_modes` (
 
 LOCK TABLES `exercise_modes` WRITE;
 /*!40000 ALTER TABLE `exercise_modes` DISABLE KEYS */;
-INSERT INTO `exercise_modes` VALUES (1,'','Work out'),(2,'','Warmout'),(3,'','Failure'),(4,'','Drop set');
+INSERT INTO `exercise_modes` VALUES (1,'Seria treningowa','Trening'),(2,'Seria rozgrzewkowa','Rozgrzewka'),(3,'Trening do upadku mięśniowego','Upadek'),(4,'Trening ze zmniejszeniem obciążenia','Dropset');
 /*!40000 ALTER TABLE `exercise_modes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,7 +107,7 @@ CREATE TABLE `exercises` (
   KEY `FKire7458l3f5p2odvr56iv4ew1` (`category_id`),
   CONSTRAINT `FKbfrh4202ef14ooi7dnfmj97xb` FOREIGN KEY (`body_part_id`) REFERENCES `bodyparts` (`id`),
   CONSTRAINT `FKire7458l3f5p2odvr56iv4ew1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +116,7 @@ CREATE TABLE `exercises` (
 
 LOCK TABLES `exercises` WRITE;
 /*!40000 ALTER TABLE `exercises` DISABLE KEYS */;
-INSERT INTO `exercises` VALUES (1,'','Chest press',1,1),(2,'','Deadlift',2,1),(3,'Shrug','Shrug',2,1),(4,'','Standing calf rise',3,1),(5,'','Leg press',3,1),(6,'','Hack squat',3,1),(7,'','Leg curl',3,1),(8,'','Leg extension',3,1),(9,'','Chest fly',1,4),(10,'','Dubbel fly',1,3),(11,'','Barel press',1,3),(12,'','Arnold press',5,3),(13,'','Back extension',2,4),(14,'','Dumbbell bench press',1,3),(15,'','Bent over one arm row',2,3),(16,'','Bent over row',2,1),(17,'','Bicep curl',4,1),(18,'','Cable crosover',1,4),(19,'','Coffin press',1,3),(20,'','Decline bench press',1,3),(21,'','Face pulls',5,4),(22,'','Front rise',5,1),(23,'','Hammer curl',4,3),(24,'','Hip thrust',3,1),(25,'','Incline bench press',1,1),(26,'','Incline chest fly',1,3),(27,'','Incline row',2,3),(28,'','Lat pull down',2,4),(29,'','Lunge',3,3),(30,'','Overhead press',5,1),(31,'','Preacher curl',4,1),(32,'','Pullover',2,1),(33,'','Reverse curl',4,1),(34,'','Romanian deadlift',2,1),(35,'','Shoulder press',5,3),(36,'','Side laterals',5,3),(37,'','Skullcrusher',4,1),(38,'','Squat',3,1),(39,'','Step up',3,3),(40,'','Stiff leg deadlift',3,1),(41,'','Sumo deadlift',2,1),(42,'','Tricep extension',4,4),(43,'','Tricep extension dumbbells',4,3),(44,'','Front squat',3,1);
+INSERT INTO `exercises` VALUES (1,'','Wyciskanie na ławeczce',1,1),(2,'','Martwy ciąg',2,1),(3,'Shrug','Shrug',2,1),(4,'','Wspięcia na palce',3,1),(5,'','Wyciskanie nóg na prasie',3,1),(6,'','Hack przysiady',3,1),(7,'','Zginanie nóg',3,1),(8,'','Prostowanie nóg',3,1),(9,'','Rozpiętki na maszunie',1,4),(10,'','Rozpiętki hantlami',1,3),(11,'','Wyciskanie hantli w leżeniu',1,3),(12,'','Arnold press',5,3),(13,'','Prostownie pleców',2,4),(14,'','Wyciskanie na skośnej ławce',1,3),(15,'','Wiosłowanie jednorącz hantlami',2,3),(16,'','Wiosłowanie sztangą w pochyle',2,1),(17,'','Zginanie ramion',4,1),(18,'','Rozpiętki na wyciągu',1,4),(19,'','Wyciskanie w wąskim uchwycie',1,3),(20,'','Wyciskanie na ławeczce w ujemnym skosie',1,3),(21,'','Przyciąganie wyciągu do twarzy',5,4),(22,'','Wzniosy sztangielek przodem',5,1),(23,'','Zginanie młotkowe ramion',4,3),(24,'','Unoszenie bioder',3,1),(25,'','Wyciskanie w sztangielek leżeniu',1,1),(26,'','Rozpiętki na skośnej ławce',1,3),(27,'','Wiosłowanie w podparciu na ławeczce',2,3),(28,'','Odwrotne rozpiętki',2,4),(29,'','Przyklęki na jedno kolano',3,3),(30,'','Wniosy sztangi nad głowę',5,1),(31,'','Zginanie ramion na modlitewniku',4,1),(32,'','Pullover',2,1),(33,'','Zginanie ramion nachwytem',4,1),(34,'','Rumuński martwy ciąg',2,1),(35,'','Wyciskanie sztangielek nad głowę',5,3),(36,'','Wznoszenie sztangielek bokiem',5,3),(37,'','Francuskie wyciskanie w leżeniu',4,1),(38,'','Przusiady',3,1),(39,'','Step up',3,3),(40,'','Martwy ciąg na prostych nogach',3,1),(41,'','Martwy ciąg sumo',2,1),(42,'','Prostowanie ramion',4,4),(43,'','Francuskie wyciskanie sztangielkami',4,3),(44,'','Przysiad ze sztangą trzymaną z przodu',3,1),(45,'Ćwiczenie na mięśnie przedramion','Zginanie nadgarstków ze sztangą',4,1);
 /*!40000 ALTER TABLE `exercises` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +140,7 @@ CREATE TABLE `workout_session_positions` (
   PRIMARY KEY (`id`),
   KEY `FKs1gqpof875iew8es0s0q3g98d` (`workout_session_id`),
   CONSTRAINT `FKs1gqpof875iew8es0s0q3g98d` FOREIGN KEY (`workout_session_id`) REFERENCES `workout_sessions` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=674 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=764 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `workout_session_positions` (
 
 LOCK TABLES `workout_session_positions` WRITE;
 /*!40000 ALTER TABLE `workout_session_positions` DISABLE KEYS */;
-INSERT INTO `workout_session_positions` VALUES (652,'Barbel',_binary '\0','','Work out','Chest press',10,50,74),(653,'Barbel',_binary '\0','','Work out','Chest press',10,30,74),(654,'Barbel',_binary '\0','','Work out','Chest press',10,30,74),(655,'Barbel',_binary '\0','','Work out','Chest press',10,30,74),(656,'Machine',_binary '\0','','Work out','Back extension',9,50,74),(657,'Machine',_binary '\0','','Drop set','Back extension',10,12,74),(658,'Dumbell',_binary '\0','','Drop set','Coffin press',10,50,74),(659,'Machine',_binary '\0','','Failure','Back extension',10,50,74),(660,'Machine',_binary '\0','','Drop set','Back extension',1,111,74),(661,'Machine',_binary '\0','','Drop set','Back extension',20,86,74),(662,'Machine',_binary '\0','','Drop set','Back extension',20,20,74),(663,'Barbel',_binary '\0','','Work out','Chest press',10,50,75),(664,'Barbel',_binary '\0','','Work out','Chest press',10,30,75),(665,'Barbel',_binary '\0','','Work out','Chest press',10,30,75),(666,'Barbel',_binary '\0','','Work out','Chest press',10,30,75),(667,'Machine',_binary '\0','','Work out','Back extension',9,50,75),(668,'Machine',_binary '\0','','Drop set','Back extension',10,12,75),(669,'Dumbell',_binary '\0','','Drop set','Coffin press',10,50,75),(670,'Machine',_binary '\0','','Failure','Back extension',10,50,75),(671,'Machine',_binary '\0','','Drop set','Back extension',1,111,75),(672,'Machine',_binary '\0','','Drop set','Back extension',20,86,75),(673,'Machine',_binary '\0','','Drop set','Back extension',20,20,75);
+INSERT INTO `workout_session_positions` VALUES (747,'Sztanga',_binary '\0','','Trening','Wyciskanie na ławeczce',10,50,85),(748,'Sztanga',_binary '\0','','Trening','Wyciskanie na ławeczce',10,30,85),(749,'Sztanga',_binary '\0','','Trening','Wyciskanie na ławeczce',10,30,85),(750,'Sztanga',_binary '\0','','Trening','Wyciskanie na ławeczce',10,30,85),(751,'Maszyna',_binary '\0','','Trening','Prostownie pleców',9,50,85),(752,'Maszyna',_binary '\0','','Dropset','Prostownie pleców',10,12,85),(753,'Hantle',_binary '\0','','Dropset','Wyciskanie w wąskim uchwycie',10,50,85),(754,'Maszyna',_binary '\0','','Upadek','Prostownie pleców',10,50,85),(755,'Maszyna',_binary '\0','','Dropset','Prostownie pleców',1,111,85),(756,'Maszyna',_binary '\0','','Dropset','Prostownie pleców',20,86,85),(757,'Maszyna',_binary '\0','','Dropset','Prostownie pleców',20,20,85),(758,'Maszyna',_binary '\0','','Dropset','Prostownie pleców',111,111,86),(759,'Maszyna',_binary '\0','','Dropset','Prostownie pleców',11,111,86),(760,'Sztanga',_binary '\0','','Dropset','Wiosłowanie sztangą w pochyle',99,99,86),(761,'Sztanga',_binary '\0','','Rozgrzewka','Wiosłowanie sztangą w pochyle',11,11,86),(762,'Hantle',_binary '\0','','Dropset','Wiosłowanie jednorącz hantlami',12,20,86),(763,'Maszyna',_binary '\0','','Upadek','Prostownie pleców',10,10,87);
 /*!40000 ALTER TABLE `workout_session_positions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,8 +165,10 @@ CREATE TABLE `workout_sessions` (
   `begining_date_time` datetime(6) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `completed` bit(1) NOT NULL,
+  `session_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `session_time` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +177,7 @@ CREATE TABLE `workout_sessions` (
 
 LOCK TABLES `workout_sessions` WRITE;
 /*!40000 ALTER TABLE `workout_sessions` DISABLE KEYS */;
-INSERT INTO `workout_sessions` VALUES (74,'2023-04-29 17:18:00.676561','Workout1',_binary '\0'),(75,'2023-04-29 17:18:09.088850','Workout1',_binary '\0');
+INSERT INTO `workout_sessions` VALUES (85,'2023-05-02 12:37:39.820950','Workout 001',_binary '\0','2023-05-02','12:37'),(86,'2023-05-02 12:37:47.144155','Workout 002',_binary '\0','2023-05-02','12:37'),(87,'2023-05-02 12:52:46.847537','Workout 004',_binary '\0','2023-05-02','12:52');
 /*!40000 ALTER TABLE `workout_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +203,7 @@ CREATE TABLE `workoutpositions` (
   CONSTRAINT `FKdwio83ukpn3y5fu01sdo3rued` FOREIGN KEY (`workout_template_id`) REFERENCES `workouts` (`id`),
   CONSTRAINT `FKf87rv5twrhuy8qrjp87usvbhv` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`),
   CONSTRAINT `FKt7nku7w2sbjkhujo1ye3tbkyh` FOREIGN KEY (`exercise_mode_id`) REFERENCES `exercise_modes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +212,7 @@ CREATE TABLE `workoutpositions` (
 
 LOCK TABLES `workoutpositions` WRITE;
 /*!40000 ALTER TABLE `workoutpositions` DISABLE KEYS */;
-INSERT INTO `workoutpositions` VALUES (1,1,10,50,1,1,1),(2,2,10,30,1,1,1),(5,3,10,30,1,1,1),(6,4,10,30,1,1,1),(7,5,9,50,13,1,1),(11,NULL,11,12,NULL,4,NULL),(12,NULL,111,111,NULL,3,NULL),(13,NULL,111,111,NULL,3,NULL),(14,NULL,20,100,NULL,4,NULL),(15,NULL,11,111,NULL,4,NULL),(16,NULL,11,111,NULL,4,NULL),(17,NULL,11,111,NULL,4,NULL),(18,NULL,1111,111,NULL,4,NULL),(19,NULL,111,111,13,4,2),(20,NULL,11,111,13,4,2),(21,NULL,99,99,16,4,2),(22,NULL,11,11,16,2,2),(23,NULL,12,20,15,4,2),(24,NULL,10,12,13,4,1),(25,NULL,10,50,19,4,1),(27,NULL,10,50,13,3,1),(29,NULL,10,10,13,3,3),(30,NULL,1,111,13,4,1),(31,NULL,20,86,13,4,1),(32,NULL,20,20,13,4,1),(33,NULL,10,10,13,3,4);
+INSERT INTO `workoutpositions` VALUES (1,1,10,50,1,1,1),(2,2,10,30,1,1,1),(5,3,10,30,1,1,1),(6,4,10,30,1,1,1),(7,5,9,50,13,1,1),(11,NULL,11,12,NULL,4,NULL),(12,NULL,111,111,NULL,3,NULL),(13,NULL,111,111,NULL,3,NULL),(14,NULL,20,100,NULL,4,NULL),(15,NULL,11,111,NULL,4,NULL),(16,NULL,11,111,NULL,4,NULL),(17,NULL,11,111,NULL,4,NULL),(18,NULL,1111,111,NULL,4,NULL),(19,NULL,111,111,13,4,2),(20,NULL,11,111,13,4,2),(21,NULL,99,99,16,4,2),(22,NULL,11,11,16,2,2),(23,NULL,12,20,15,4,2),(24,NULL,10,12,13,4,1),(25,NULL,10,50,19,4,1),(27,NULL,10,50,13,3,1),(29,NULL,10,10,13,3,3),(30,NULL,1,111,13,4,1),(31,NULL,20,86,13,4,1),(32,NULL,20,20,13,4,1),(33,NULL,10,10,13,3,4),(34,NULL,20,20,37,4,2),(36,NULL,33,33,37,1,2),(37,NULL,11,111,6,4,3),(38,NULL,20,66,8,4,3),(39,NULL,11,86,41,1,3);
 /*!40000 ALTER TABLE `workoutpositions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,7 +237,7 @@ CREATE TABLE `workouts` (
 
 LOCK TABLES `workouts` WRITE;
 /*!40000 ALTER TABLE `workouts` DISABLE KEYS */;
-INSERT INTO `workouts` VALUES (1,'Workout no one','Workout1'),(2,'workout no. two','Workout 2 '),(3,'Workout number three','Workout 3'),(4,'Workout number four','Workout 4');
+INSERT INTO `workouts` VALUES (1,'Trening numer 1','Workout 001'),(2,'Trening numer 2','Workout 002'),(3,'Trening numer 3','Workout 003'),(4,'Trening numer 4','Workout 004');
 /*!40000 ALTER TABLE `workouts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -248,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-29 17:25:24
+-- Dump completed on 2023-05-02 12:59:43
